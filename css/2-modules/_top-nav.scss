@@ -2,17 +2,18 @@
   $base-border-radius: 3px !default;
   $dark-gray: #333 !default;
   $large-screen: em(860) !default;
-  $base-font-color: $dark-gray !default;
+  $base-font-color: white;
   $centered-navigation-padding: 1em;
   $centered-navigation-logo-height: 2em;
-  $centered-navigation-background: #E7F1EC;
+  $centered-navigation-background: $main-color;
   $centered-navigation-color: transparentize($base-font-color, 0.3);
   $centered-navigation-color-hover: $base-font-color;
+  $centered-navigation-color-submenu: lighten($main-color,10%);
   $centered-navigation-height: 60px;
   $centered-navigation-item-padding: 1em;
   $centered-navigation-submenu-padding: 1em;
-  $centered-navigation-submenu-width: 12em;
-  $centered-navigation-item-nudge: 2.2em;
+  //$centered-navigation-submenu-width: 12em;
+  $centered-navigation-item-nudge: 0em;
   $horizontal-bar-mode: $large-screen;
 
   background-color: $centered-navigation-background;
@@ -57,11 +58,21 @@
 
     &:focus,
     &:hover {
-      color: $centered-navigation-color-hover;
+      color: $centered-navigation-color;
     }
   }
 
   // Nav menu
+
+  .centered-navigation-wrapper button {
+    height: $centered-navigation-height / 2;
+    width: 5em;
+    background-color: $centered-navigation-background;
+    padding: .2em;
+    font-weight: 400;
+    border: 1.5px solid tint($centered-navigation-background,20%);
+    color: $centered-navigation-color
+  }
 
   .centered-navigation-wrapper {
     @include outer-container;
@@ -70,9 +81,35 @@
     z-index: 999;
   }
 
+  .centered-navigation-logo {
+    @include span-columns(1);
+    display: block;
+    line-height: $centered-navigation-height;
+
+    @include media($large-screen) {
+      display: inline;
+    }
+  }
+
+  .logo img {
+    margin-bottom: -$centered-navigation-logo-height / 3;
+    max-height: $centered-navigation-logo-height;
+    opacity: 0.6;
+  }
+
+  .centered-navigation-signin {
+    @include span-columns(1);
+    @include omega();
+    display: block;
+    line-height: $centered-navigation-height;
+
+    @include media($large-screen) {
+      display: inline;
+    }
+    }
+
   ul.centered-navigation-menu {
     -webkit-transform-style: preserve-3d; // stop webkit flicker
-    clear: both;
     display: none;
     margin: 0 auto;
     overflow: visible;
@@ -81,6 +118,8 @@
     z-index: 99999;
 
     &.show {
+      @include span-columns(10);
+      @include omega();
       display: block;
     }
 
@@ -131,21 +170,6 @@
     }
   }
 
-  li.logo.nav-link {
-    display: none;
-    line-height: 0;
-
-    @include media($large-screen) {
-      display: inline;
-    }
-  }
-
-  .logo img {
-    margin-bottom: -$centered-navigation-logo-height / 3;
-    max-height: $centered-navigation-logo-height;
-    opacity: 0.6;
-  }
-
   // Sub menus
 
   li.more.nav-link {
@@ -157,10 +181,6 @@
 
     > ul > li:first-child a  {
       padding-top: 1em;
-    }
-
-    a {
-      margin-right: $centered-navigation-submenu-padding;
     }
 
     > a {
@@ -189,13 +209,6 @@
       @include media($large-screen) {
         margin-right: $centered-navigation-submenu-padding;
       }
-
-      &:after {
-        content: "›";
-        font-size: 1.2em;
-        position: absolute;
-        right: $centered-navigation-submenu-padding / 2;
-      }
     }
 
     &:focus > .submenu,
@@ -212,18 +225,14 @@
   ul.submenu {
     display: none;
     padding-left: 0;
+    border: 1px solid $centered-navigation-color-submenu;
+    font-weight: 200;
+
 
     @include media($horizontal-bar-mode) {
       left: -$centered-navigation-submenu-padding;
       position: absolute;
-      top: 1.5em;
-    }
-
-    .submenu {
-      @include media($horizontal-bar-mode) {
-        left: $centered-navigation-submenu-width - 0.2em;
-        top: 0;
-      }
+      border-top: 6px solid $centered-navigation-color-submenu;
     }
 
     li {
@@ -246,17 +255,23 @@
       }
 
       a {
-        background-color: darken($centered-navigation-background, 3%);
+        background-color: white;
         display: inline-block;
         text-align: right;
         text-decoration: none;
         width: 100%;
+        &:focus,
+        &:hover {
+          color: $centered-navigation-color-submenu;
+        }
 
         @include media($horizontal-bar-mode) {
-          background-color: $centered-navigation-background;
+          background-color: white;
+          color: black;
           padding-left: $centered-navigation-submenu-padding;
           text-align: left;
-          width: $centered-navigation-submenu-width;
+          white-space: nowrap;
+          //width: $centered-navigation-submenu-width;
         }
       }
     }
