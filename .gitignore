@@ -1,2 +1,6 @@
-css/.sass-cache
+static/css/.sass-cache/*
 *.swp
+.DS_Store
+db.sqlite3
+*/.DS_Store
+*.pyc
