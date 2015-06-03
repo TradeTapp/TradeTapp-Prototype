@@ -4,3 +4,5 @@ static/css/.sass-cache/*
 db.sqlite3
 */.DS_Store
 *.pyc
+
+.idea/workspace.xml

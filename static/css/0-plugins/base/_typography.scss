@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 body {
   @include font-feature-settings("kern", "liga", "pnum");
   -webkit-font-smoothing: antialiased;
@@ -9,7 +10,11 @@ body {
   padding: 0px;
 }
 
-h1,
+h1 {
+  text-align: center;
+  font-size:4em;
+  font-family: $base-font-family;
+}
 h2,
 h3,
 h4,

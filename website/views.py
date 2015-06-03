@@ -7,4 +7,9 @@ def index(request):
     context = RequestContext(request)
     return render_to_response('index.html',{}, context)
 
+def form(request):
+    context = RequestContext(request)
+    return render_to_response('form.html',{}, context)
+
+
 # Create your views here.
