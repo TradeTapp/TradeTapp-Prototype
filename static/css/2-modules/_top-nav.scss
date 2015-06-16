@@ -99,7 +99,8 @@
 
   .centered-navigation-signin {
     @include span-columns(1);
-    @include omega();
+    //@include omega();
+    overflow: visible;
     display: block;
     line-height: $centered-navigation-height;
 
@@ -116,10 +117,10 @@
     padding: 0;
     width: 100%;
     z-index: 99999;
+    @include span-columns(10);
+    //@include omega();
 
     &.show {
-      @include span-columns(10);
-      @include omega();
       display: block;
     }
 

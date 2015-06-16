@@ -1,8 +1,9 @@
 static/css/.sass-cache/*
+static/css/app.css
+static/css/app.css.map
 *.swp
 .DS_Store
 db.sqlite3
 */.DS_Store
 *.pyc
-
 .idea/workspace.xml

@@ -1,0 +1,23 @@
+section {
+  @include outer-container;
+  article { @include span-columns(4); }
+  aside { @include span-columns(3); }
+}
+
+.form-wrapper{
+  max-width: 60em;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:1em;
+}
+.form-header {
+  text-align:center;
+  font-weight: bold;
+  font-size: 2em;
+}
+.form-sub-header {
+  text-align:center;
+  font-weight: bold;
+  font-size: 1em;
+  padding-bottom: 1em;
+}
