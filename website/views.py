@@ -35,4 +35,8 @@ def form6(request):
     context = RequestContext(request)
     return render_to_response('form6.html',{}, context)
 
+def setup(request):
+    context = RequestContext(request)
+    return render_to_response('setup.html',{}, context)
+
 # Create your views here.

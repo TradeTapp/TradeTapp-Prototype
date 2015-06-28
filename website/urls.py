@@ -11,4 +11,5 @@ urlpatterns = [
         url(r'^form4$', views.form4, name='form4'),
         url(r'^form5$', views.form5, name='form5'),
         url(r'^form6$', views.form6, name='form6'),
+        url(r'^setup$', views.setup, name='setup'),
 ]

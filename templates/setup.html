@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<div class="form-wrapper">
+    <div class="form-header">
+        Financial Analysis Preferences
+    </div>
+    <div class="form-sub-header">
+        Customize your analysis by selecting the financial ratios used to normalize your data set. Assign weightings to each financial category in order to emphasize importance of certain ratios over others.
+    </div>
+    <fieldset>
+        <label>Liquidity</label>
+        <label>
+            <input type="checkbox" class="checkbox">Quick Ratio
+            <div class="tooltip-item">
+                Show Formula
+                <div class="tooltip">
+                    <p>(CCE+MS+AR)/CL</p>
+                </div>
+            </div>
+        </label>
+        <label>
+            <input type="checkbox" class="checkbox">Days of Cash on Hand
+            <div class="tooltip-item">
+                Show Formula
+                <div class="tooltip">
+                    <p>(CCE*365)/R</p>
+                </div>
+            </div>
+        </label>
+        <label>
+            <input type="checkbox" class="checkbox">Underbillings to Working Capital
+            <div class="tooltip-item">
+                Show Formula
+                <div class="tooltip">
+                    <p>U/(CA-CL)</p>
+                </div>
+            </div>
+        </label>
+        <div>Assign Weighting:<input type="text" placeholder="ex:35%"/></div>
+    </fieldset>
+
+    <fieldset>
+        <label>Turnover (Efficiency)</label>
+        <label>
+            <input type="checkbox" class="checkbox">Accounts Receivables Turnover
+            <div class="tooltip-item">
+                Show Formula
+                <div class="tooltip">
+                    <p>R/AR</p>
+                </div>
+            </div>
+        </label>
+        <label>
+            <input type="checkbox" class="checkbox">Working Capital Turnover
+            <div class="tooltip-item">
+                Show Formula
+                <div class="tooltip">
+                    <p>R/(CA-CL)</p>
+                </div>
+            </div>
+        </label>
+        <div>Assign Weighting:<input type="text" placeholder="ex:35%"/></div>
+    </fieldset>
+    <fieldset>
+        <label>Debt (Leverage)</label>
+        <label>
+            <input type="checkbox" class="checkbox">Debt Ratio
+            <div class="tooltip-item">
+                Show Formula
+                <div class="tooltip">
+                    <p>TL/TA</p>
+                </div>
+            </div>
+        </label>
+        <label>
+            <input type="checkbox" class="checkbox">Debt to Equity
+            <div class="tooltip-item">
+                Show Formula
+                <div class="tooltip">
+                    <p>TL/E</p>
+                </div>
+            </div>
+        </label>
+        <label>
+            <input type="checkbox" class="checkbox">Cash to Overbillings
+            <div class="tooltip-item">
+                Show Formula
+                <div class="tooltip">
+                    <p>CCE/O</p>
+                </div>
+            </div>
+        </label>
+        <div>Assign Weighting:<input type="text" placeholder="ex:35%"/></div>
+    </fieldset>
+    <fieldset>
+
+        <label>Profitability</label>
+            <label>
+                <input type="checkbox" class="checkbox">Gross Profit Margin
+                <div class="tooltip-item">
+                    Show Formula
+                    <div class="tooltip">
+                        <p>(R-COGS)/R</p>
+                    </div>
+                </div>
+            </label>
+        <label>
+            <input type="checkbox" class="checkbox">Return on Assets
+            <div class="tooltip-item">
+                Show Formula
+                <div class="tooltip">
+                    <p>NI/TA</p>
+                </div>
+            </div>
+        </label>
+        <div>Assign Weighting:<input type="text" placeholder="ex:35%"/></div>
+    </fieldset>
+
+    </div>
+
+{% endblock %}
