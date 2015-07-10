@@ -10,7 +10,7 @@
         <th>Annual Revenue</th>
         <th>Financial Rank</th>
         <th>Safety Rank</th>
-        <th>Single Contract Limit</th>
+        <th>Contract Limit</th>
     </tr>
     </thead>
     <tbody>
@@ -22,7 +22,9 @@ var myObject;
 $(document).ready( function () {
     $('#table_id').DataTable(
             { paging: false,
-              ordering: true}
+              ordering: true,
+              info: false,
+            }
     );
     myObject={};
     $.getJSON('../static/data/griddata.json', function(data){

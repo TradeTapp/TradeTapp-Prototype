@@ -2,10 +2,11 @@ $grid-header-color: #E0E0E0;
 $grid-lines: darken($grid-header-color,15%);
 
 table.dataTable {
+  font-size: 85%;
   width: 100%;
   margin: 0 auto;
   clear: both;
-  border-collapse: separate;
+  //border-collapse: separate;
   border-spacing: 0;
 
   //Prevent overlapping borders
@@ -13,11 +14,13 @@ table.dataTable {
     &:first-child {
       border-left: 1px solid $grid-lines;
     }
-    border-bottom: 1px solid $grid-lines;
-    border-right: 1px solid $grid-lines;
+    &:last-child {
+      border-right: 1px solid $grid-lines;
+    }
+    //border-bottom: 1px solid $grid-lines;
   }
   th {
-    border-top: 1px solid $grid-lines;
+    //border-top: 1px solid $grid-lines;
   }
 
 
@@ -25,7 +28,7 @@ table.dataTable {
     th {
       background: $grid-header-color;
       font-weight: bold;
-      padding: 5px 9px;
+      padding: 8px 10px;
       border-bottom: 1px solid #111;
     }
     %sorting_enabled {
@@ -63,26 +66,23 @@ table.dataTable {
       background-color: #ffffff;
     }
     td {
-      padding: 4px 8px;
+      padding: 6px 9px;
     }
   }
 }
 //special class for display
 table.dataTable.display {
   tbody {
+    tr {
+      border: none;
+    }
     tr.odd {
-      background-color: darken(#ffffff,2%);
+      //background-color: darken(#ffffff,2%);
       }
-      &:first-child {
-        td {
-          border-top: none;
-        }
-      }
+    tr:hover {
+        font-weight: bold;
     }
-    th, td {
-      //border-top: 1px solid #ddd;
-      //border-right: 1px solid #ddd;
-    }
+   } 
 }
 
 .dataTables_wrapper {
@@ -90,21 +90,21 @@ table.dataTable.display {
   @include clearfix;
   position: relative;
   clear: both;
-  *zoom: 1;
-  zoom: 1;
+  cursor: pointer;
+  *cursor: hand;
   padding-top: 3em;
   padding-bottom: 3em;
 }
 .dataTables_wrapper .dataTables_filter {
-  float: right;
-  text-align: right;
+  float: left;
+  text-align: left;
 }
 .dataTables_wrapper .dataTables_filter input {
   margin-left: 0.5em;
 }
 .dataTables_wrapper .dataTables_info {
   clear: both;
-  float: left;
+  float: right;
   padding-top: 0.755em;
 }
 .dataTables_wrapper .dataTables_processing {
