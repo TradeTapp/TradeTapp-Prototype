@@ -1,0 +1,9 @@
+//Global Layout Structure
+ .container {
+    @include outer-container();
+ }
+
+ .sidebar{
+ 	  @include span-columns(5);
+ }
+
