@@ -1,0 +1,10 @@
+{
+  "name": "tradetapp-dependencies",
+  "description": "TradeTapp Platform",
+  "version": "1.0.0",
+  "dependencies": {
+    "bourbon": "~4.2.3",
+    "jquery": "~2.1.4",
+    "neat": "~1.7.2"
+  }
+}
