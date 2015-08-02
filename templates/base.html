@@ -1,10 +1,10 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html>
+<html ng-app="tradeTapp">
 <head lang="en">
     <meta charset="UTF-8">
     <title>Test</title>
-    <link rel="stylesheet" href="../static/css/app.css">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
 </head>
 <script type="text/javascript" src="{% static 'dist/all.min.js' %}"></script>
 <header class="centered-navigation" role="banner">
@@ -69,22 +69,6 @@
 
     <p>Disclaimer area lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, nostrum repudiandae saepe.</p>
 </footer>
-
-<script>
-$(document).ready(function() {
-var menuToggle = $('#js-centered-navigation-mobile-menu').unbind();
-$('#js-centered-navigation-menu').removeClass("show");
-
-menuToggle.on('click', function(e) {
-e.preventDefault();
-$('#js-centered-navigation-menu').slideToggle(function(){
-if($('#js-centered-navigation-menu').is(':hidden')) {
-$('#js-centered-navigation-menu').removeAttr('style');
-}
-});
-});
-});
-</script>
 
 
 </html>

@@ -1,4 +1,12 @@
-{% extends 'base.html' %}
-{% block body_block %}
-<div>Hello World 6</div>
-{% endblock %}
+{% load staticfiles %}
+<!doctype html>
+<html ng-app="sub">
+  <head>
+<script type="text/javascript" src="{% static 'dist/all.min.js' %}"></script>
+  </head>
+  <body>
+    <div ng-controller="sublist as list">
+        <p ng-repeat="s in list.subs">[[ s ]]</p>
+    </div>
+  </body>
+</html>

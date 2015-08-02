@@ -1,47 +1,12 @@
 {% extends 'base.html' %}
 {% block body_block %}
-<body>
-<table id="table_id" class="display">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Location</th>
-        <th>Regions Served</th>
-        <th>Annual Revenue</th>
-        <th>Financial Rank</th>
-        <th>Safety Rank</th>
-        <th>Contract Limit</th>
-    </tr>
-    </thead>
-    <tbody>
-    </tbody>
-</table>
-</body>
-<script>
-var myObject;
-$(document).ready( function () {
-    $('#table_id').DataTable(
-            { paging: false,
-              ordering: true,
-              info: false,
-            }
-    );
-    myObject={};
-    $.getJSON('../static/data/griddata.json', function(data){
-        myObject=data;
-        for (var index = 0; index < myObject.length;index++) {
-            myObject[index][3] = Number(myObject[index][3]).format(2);
-            myObject[index][6] = Number(myObject[index][6]).format(2);
-        }
-
-        $('#table_id').dataTable().fnAddData(myObject);
-    });
-} );
-Number.prototype.format = function(n, x) {
-    alert("hey");
-    var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
-    return '$' + (this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,')).toString();
-};
-
-</script>
+        <div ng-controller="SubsController as list">
+<div>
+    <input type="checkbox" ng-model="filters">Filter Something</input>
+</div>
+    <div>
+        <p ng-repeat="s in filtered = (list.cardlist | filter:filterByCheckbox)">[[ s.name ]]</p>
+        <tt>[[filters]]</tt>
+    </div>
+    </div>
 {% endblock %}

@@ -7,10 +7,11 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var ngAnnotate = require('gulp-ng-annotate');
 
 // Lint Task
 gulp.task('lint', function() {
-    return gulp.src(['static/js/*.js','!static/js/**/*jquery*'])
+    return gulp.src(['static/js/**/*.js','!static/js/**/*angular.min*','!static/js/**/*jquery*'])
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
@@ -24,9 +25,14 @@ gulp.task('sass', function() {
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-    return gulp.src('static/js/*.js')
+    return gulp.src(['static/js/external/*.js',
+                     'static/js/**/*config.js',
+                     'static/js/**/*model.js',
+                     'static/js/**/*service.js',
+                     'static/js/**/*.js'])
         .pipe(concat('all.js'))
         .pipe(gulp.dest('static/dist'))
+        .pipe(ngAnnotate())
         .pipe(rename('all.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('static/dist'));
@@ -34,7 +40,7 @@ gulp.task('scripts', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('static/js/*.js', ['lint', 'scripts']);
+    gulp.watch('static/js/**/*.js', ['lint', 'scripts']);
     gulp.watch('static/css/**/*.scss', ['sass']);
 });
 

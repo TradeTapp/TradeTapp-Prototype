@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Subcontractor A",
+    "location": "Washington DC",
+    "region":"Northeast",
+    "revenue": 15000000,
+    "fin_rank": 66.7,
+    "safe_rank": 56.2,
+    "max_contract": 46347000
+  },
+  {
+    "name": "Subcontractor B",
+    "location": "Washington DC",
+    "region": "Northeast",
+    "revenue": 1500000,
+    "fin_rank": 52.1,
+    "safe_rank": 72.4,
+    "max_contract": 82456420
+  },
+  {
+    "name": "Subcontractor B",
+    "location": "Washington DC",
+    "region": "Northeast",
+    "revenue": 1500000,
+    "fin_rank": 52.1,
+    "safe_rank": 72.4,
+    "max_contract": 82456420
+  }
+]
