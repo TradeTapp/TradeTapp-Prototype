@@ -25,7 +25,8 @@ gulp.task('sass', function() {
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-    return gulp.src(['static/js/external/*.js',
+    return gulp.src(['bower_components/angular/angular.js',
+                     'bower_components/jquery/dist/jquery.js',
                      'static/js/**/*config.js',
                      'static/js/**/*model.js',
                      'static/js/**/*service.js',
