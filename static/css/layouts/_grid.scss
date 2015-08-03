@@ -1,0 +1,28 @@
+.grid-page {
+	padding-top:1em;	
+}
+.top-row {
+	box-sizing:border-box;
+	@include span-columns(12);
+}
+.grid-search {
+	@include span-columns(4);
+}
+.grid-context-buttons{
+	@include shift(5);
+	@include span-columns(3);
+	position: absolute;
+	right:0;
+}
+.grid-filter {
+	clear:both;
+	margin-top:3em;
+	padding-top:2em;
+	border-left: 10em;
+	border-color: red;
+    /* add back negative margin value */
+	background: lighten($main-color,20%);
+}
+
+.grid-content {
+}

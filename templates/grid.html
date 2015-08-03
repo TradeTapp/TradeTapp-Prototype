@@ -1,12 +1,41 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% block body_block %}
-        <div ng-controller="SubsController as list">
-<div>
-    <input type="checkbox" ng-model="filters">Filter Something</input>
+<div ng-controller="SubsController as list" class='grid-page'>
+	<div class="top-row">
+		<div class='grid-search'>
+			<form class="search-bar" role="search">
+				<input type="search" placeholder="Enter Search" />
+				<button type="submit">
+					<img src="{% static 'img/search-icon.png' %}" alt="Search Icon">
+				</button>
+			</form>
+		</div>
+		<div class="grid-context-buttons">
+			<div class="button-group">
+				<label>
+					<input type="radio" name="button-group" value="item" checked>
+					<span class="button-group-item">Local</span>
+				</label>
+				<label>
+					<input type="radio" name="button-group" value="other-item">
+					<span class="button-group-item">Global</span>
+				</label>
+				<label>
+					<input type="radio" name="button-group" value="other-item">
+					<span class="button-group-item">All</span>
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="grid-filter-wrapper">
+		<div class="grid-filter">
+			<input type="checkbox" ng-model="filters">Filter Something</input>
+		</div>
+	</div>
+	<div class="grid-content">
+		<p ng-repeat="s in filtered = (list.cardlist | filter:filterByCheckbox)">[[ s.name ]]</p>
+		<tt>[[filters]]</tt>
+	</div>
 </div>
-    <div>
-        <p ng-repeat="s in filtered = (list.cardlist | filter:filterByCheckbox)">[[ s.name ]]</p>
-        <tt>[[filters]]</tt>
-    </div>
-    </div>
 {% endblock %}
