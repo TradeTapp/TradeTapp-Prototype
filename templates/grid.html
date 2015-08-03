@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% block body_block %}
 <div ng-controller="SubsController as list" class='grid-page'>
-	<div class="top-row">
+	<div class="container">
 		<div class='grid-search'>
 			<form class="search-bar" role="search">
 				<input type="search" placeholder="Enter Search" />
@@ -29,11 +29,13 @@
 		</div>
 	</div>
 	<div class="grid-filter-wrapper">
-		<div class="grid-filter">
-			<input type="checkbox" ng-model="filters">Filter Something</input>
+		<div class="container">
+			<div class="grid-filter">
+				<input type="checkbox" ng-model="filters">Filter Something</input>
+			</div>
 		</div>
 	</div>
-	<div class="grid-content">
+	<div class="grid-content container">
 		<p ng-repeat="s in filtered = (list.cardlist | filter:filterByCheckbox)">[[ s.name ]]</p>
 		<tt>[[filters]]</tt>
 	</div>

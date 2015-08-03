@@ -21,8 +21,11 @@
 	border-left: 10em;
 	border-color: red;
     /* add back negative margin value */
-	background: lighten($main-color,20%);
 }
 
 .grid-content {
+}
+
+.grid-filter-wrapper{
+		background: lighten($main-color,20%);
 }

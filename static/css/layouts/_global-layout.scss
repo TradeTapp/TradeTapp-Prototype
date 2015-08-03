@@ -1,4 +1,8 @@
 //Global Layout Structure
+body{
+	margin: 0; //TODO: We should add normalize later
+}
+
  .container {
     @include outer-container();
  }
