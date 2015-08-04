@@ -1,1 +1,103 @@
 // Filter Dropdown
+.dropdown {
+	$base-border-color: gainsboro !default;
+	$base-border-radius: 3px !default;
+	$base-line-height: 1.5em !default;
+	$base-background-color: white !default;
+	$dark-gray: #333 !default;
+	$large-screen: em(860) !default;
+	$base-font-color: $dark-gray !default;
+	$dropdown-color: $base-font-color;
+	$dropdown-selections-color: lighten($dropdown-color, 40%);
+	$dropdown-border: 1px solid silver;
+	$dropdown-background: $base-background-color;
+	$dropdown-background-hover: darken($dropdown-background, 5%);
+	$dropdown-inner-border: 1px solid silver;
+	$dropdown-height: 40px;
+	$dropdown-padding: 16px;
+	$dropdown-distance-from-menu: 50px;
+	$dropdown-arrow-top-distance: 0;
+	$dropdown-box-height: 3.5em;
+
+	line-height: $base-line-height;
+
+	.dropdown-container {
+		position: relative;
+		text-align: center;
+		box-sizing: border-box;
+		border-radius: $base-border-radius;
+		background: $dropdown-background;
+		border: $dropdown-border;
+		cursor: pointer;
+		height: $dropdown-box-height;
+		width: golden-ratio($dropdown-box-height,2);
+		text-align: left;
+	}
+
+	.dropdown-container:hover {
+		background-color: $dropdown-background-hover;
+	}
+
+
+	.dropdown-description {
+		color: $dropdown-color;
+		font-weight: 800;
+		margin: 0;
+		font-size: .7em;
+		padding: 0 ($dropdown-padding * 2.5) 0 ($dropdown-padding / 2);
+
+		@include media($large-screen) {
+			font-size: 1em;
+		}
+	}
+
+	.dropdown-description:after {
+		color: $base-font-color;
+		content: "\25BE";
+		display: block;
+		position: absolute;
+		right: $dropdown-padding;
+		top: $dropdown-arrow-top-distance;
+	}
+
+	.dropdown-filter {
+		color: $dropdown-selections-color;
+		margin: 0;
+		font-size: .5em;
+		padding: 0 ($dropdown-padding * 2.5) ($dropdown-padding / 2) ($dropdown-padding / 2);
+		white-space: nowrap;
+
+		@include media($large-screen) {
+			font-size: .7em;
+		}
+	}
+
+	.dropdown-menu {
+		box-sizing: border-box;
+		background: $dropdown-background;
+		border-radius: $base-border-radius;
+		border-top-left-radius: 0;
+		border: $dropdown-border;
+		color: $dropdown-color;
+		cursor: pointer;
+		display: none;
+		overflow: show;
+		width: 228px;
+		position:relative;
+		z-index: 9999;
+	}
+
+	.dropdown-menu li {
+		color: $dropdown-color; 
+		list-style: none;
+		padding: $dropdown-padding / 2;
+	}
+
+	.dropdown-menu li:hover {
+		background: $dropdown-background-hover;
+	}
+
+	.show-menu {
+		display: block;
+	}
+}
