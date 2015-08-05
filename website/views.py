@@ -39,4 +39,8 @@ def setup(request):
     context = RequestContext(request)
     return render_to_response('setup.html',{}, context)
 
+def profile(request):
+    context = RequestContext(request)
+    return render_to_response('profile.html',{}, context)
+
 # Create your views here.
