@@ -1,0 +1,6 @@
+// Global Resets and Styles
+body{
+	margin: 0; //TODO: We should add normalize later
+}
+
+
