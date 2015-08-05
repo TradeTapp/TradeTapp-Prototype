@@ -7,6 +7,7 @@
     "jquery": "~2.1.4",
     "neat": "~1.7.2",
     "angular": "~1.4.3",
-    "bitters": "~1.0.0"
+    "bitters": "~1.0.0",
+    "normalize": "~1.0.4"
   }
 }
