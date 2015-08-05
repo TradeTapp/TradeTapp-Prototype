@@ -1,13 +1,29 @@
-//Global Layout Structure
-body{
-	margin: 0; //TODO: We should add normalize later
+//Global Style Tags
+ body{
+ 	margin: 0;
+ 	padding: 0;
+ 	@include proxima-nova();
+ }
+
+// Links
+ a{
+ 	&:hover{
+ 		color: $tt-blue;
+ 	}
+ }
+
+// Headlines
+h1{ font-size: em(30); }
+h2{ font-size: em(25); }
+h3{ font-size: em(20); }
+h4{ font-size: em(18); }
+h5{ font-size: em(16); }
+
+
+// Layout Specific Blocks
+.container {
+	@include outer-container();
 }
 
- .container {
-    @include outer-container();
- }
 
- .sidebar{
- 	  @include span-columns(5);
- }
 
