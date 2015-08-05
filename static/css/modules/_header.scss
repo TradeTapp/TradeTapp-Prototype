@@ -1,0 +1,58 @@
+//Header & Main Nav
+header{  
+  // background: #005C7F;
+  border-bottom: 1px solid $tt-light-gray;
+  margin-bottom: 20px;
+  padding: 20px 0 10px;
+    a{
+      color: $text-color;
+    }
+}
+
+.logo{
+  float: left;
+  font-size: em(20);
+    a{
+      @include proxima-nova-bold();
+      text-transform: uppercase;
+      letter-spacing: 10px;
+      font-size: 20px;
+    }
+}
+
+
+nav.main-nav{
+  text-align: right;
+  @include direction-context(right-to-left) {
+    @include span-columns(8);
+  }
+  ul{
+    display: inline-block;
+    width: 100%;
+
+    li{
+      float: left;
+      position: relative;
+      margin-right: 7%;
+        .submenu{
+          position: absolute;
+          top: 20px;
+          left: 0;
+          display: none;
+        }
+        &:hover{
+          .submenu{
+            display: block;
+            width: 133px;
+            text-align: left;
+
+            li{
+              float: none;
+              display: block;
+              width: 100%;
+            }
+          }
+        }
+    }
+  }
+}

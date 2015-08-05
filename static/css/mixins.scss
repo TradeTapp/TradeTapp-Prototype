@@ -1,0 +1,23 @@
+// Font Mixins
+@mixin proxima-nova { 
+  font-family: "ProximaNova-Regular", sans-serif;
+}
+
+@mixin proxima-nova-semibold { 
+  font-family: "ProximaNova-Semibold", sans-serif;
+}
+
+@mixin proxima-nova-bold { 
+  font-family: "ProximaNova-Bold", sans-serif;
+  font-weight: bold;
+}
+
+
+//Vertical Align element in box element
+@mixin vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
