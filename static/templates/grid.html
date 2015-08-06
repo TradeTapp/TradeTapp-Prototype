@@ -1,0 +1,64 @@
+<div ng-controller="SubsController as list" class='grid-page'>
+	<div class="container">
+		<div class='grid-search'>
+			<form class="search-bar" role="search">
+				<input type="search" placeholder="Enter Search" />
+				<button type="submit">
+					<img src="../img/search-icon.png" alt="Search Icon">
+				</button>
+			</form>
+		</div>
+		<div class="grid-context-buttons">
+			<div class="button-group">
+				<label>
+					<input type="radio" name="button-group" value="item" checked>
+					<span class="button-group-item">Local</span>
+				</label>
+				<label>
+					<input type="radio" name="button-group" value="other-item">
+					<span class="button-group-item">Global</span>
+				</label>
+				<label>
+					<input type="radio" name="button-group" value="other-item">
+					<span class="button-group-item">All</span>
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="grid-filter">
+			<div class="dropdown">
+				<div class="dropdown-container">
+					<div class="dropdown-button-container" ng-click="toggleCustom()">
+						<p class="dropdown-description">Trade Type</p>
+						<p class="dropdown-filter">[[tradeSelected]]</p>
+					</div>
+					<ul ng-hide="menuDropdown" class="dropdown-menu dropdown-select">
+						<li ng-repeat="trade in getTradeList()" ng-click="setFilter(trade)">[[trade]]</li>
+					</ul>
+				</div>
+			</div>
+			<!-- <div class="dropdown">
+				<div class="dropdown-container">
+					<div class="dropdown-button-container">
+						<p class="dropdown-description">Trade Type</p>
+						<p class="dropdown-filter">Electrician</p>
+					</div>
+					<ul class="dropdown-menu dropdown-select">
+						<li>Dropdown Menu Item</li>
+						<li>Another Item</li>
+						<li>Item Three</li>
+						<li>The Last One</li>
+					</ul>
+				</div>
+			</div> -->
+			<!-- <input type="checkbox" ng-model="filters">Filter Something</input> -->
+		</div>
+	</div>
+	<div class="grid-filter-divider">
+	</div>
+	<div class="grid-content container">
+		<p ng-repeat="s in filtered = (list.cardlist | filter:applyFilters)">[[ s ]]</p>
+		<tt>[[filters]]</tt>
+	</div>
+</div>

@@ -22,8 +22,13 @@
 }
 
 .grid-content {
+	padding-top: 10px;
 }
 
-.grid-filter-wrapper{
-		background: lighten($main-color,20%);
-}
+.grid-filter-divider{
+    border-bottom: 1px solid $tt-light-gray; 
+    border-top: 1px solid $tt-light-gray; 
+    padding-top: 1px;
+    margin: 10px 0 10px;
+		//background: lighten($main-color,20%);
+	}

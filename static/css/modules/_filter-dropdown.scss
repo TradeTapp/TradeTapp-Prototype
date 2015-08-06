@@ -20,6 +20,8 @@
 	$dropdown-box-height: 3.5em;
 
 	line-height: $base-line-height;
+	float: left;
+	margin-left: 5px;
 
 	.dropdown-container {
 		position: relative;
@@ -36,6 +38,9 @@
 
 	.dropdown-container:hover {
 		background-color: $dropdown-background-hover;
+	}
+	.dropdown-button-container {
+
 	}
 
 
@@ -73,14 +78,12 @@
 	}
 
 	.dropdown-menu {
-		box-sizing: border-box;
 		background: $dropdown-background;
 		border-radius: $base-border-radius;
 		border-top-left-radius: 0;
 		border: $dropdown-border;
 		color: $dropdown-color;
 		cursor: pointer;
-		display: none;
 		overflow: show;
 		width: 228px;
 		position:relative;
@@ -90,14 +93,10 @@
 	.dropdown-menu li {
 		color: $dropdown-color; 
 		list-style: none;
-		padding: $dropdown-padding / 2;
+		// padding: $dropdown-padding / 2;
 	}
 
 	.dropdown-menu li:hover {
 		background: $dropdown-background-hover;
-	}
-
-	.show-menu {
-		display: block;
 	}
 }

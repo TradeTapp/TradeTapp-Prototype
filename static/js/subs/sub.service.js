@@ -13,11 +13,6 @@ angular.module('tradeTapp').factory('subs', function($http,$location,$q){
        }
 
     };
-    subs.filterItems = function() {
-    };
-
-    filterFunc = function(i,n) {
-        return n;
-    };
+    
 	return subs;
 });
