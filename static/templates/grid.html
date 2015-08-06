@@ -28,7 +28,6 @@
 	<div class="container">
 		<div class="grid-filter">
 			<div class="dropdown">
-				<div class="dropdown-container">
 					<div class="dropdown-button-container" ng-click="toggleCustom()">
 						<p class="dropdown-description">Trade Type</p>
 						<p class="dropdown-filter">[[tradeSelected]]</p>
@@ -36,7 +35,6 @@
 					<ul ng-hide="menuDropdown" class="dropdown-menu dropdown-select">
 						<li ng-repeat="trade in getTradeList()" ng-click="setFilter(trade)">[[trade]]</li>
 					</ul>
-				</div>
 			</div>
 			<!-- <div class="dropdown">
 				<div class="dropdown-container">
