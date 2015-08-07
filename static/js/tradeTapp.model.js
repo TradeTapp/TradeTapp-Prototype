@@ -18,9 +18,30 @@ tradeTapp.config(function($interpolateProvider,$httpProvider,$stateProvider,$url
 		url: "/form",
 		templateUrl: "form.html"
 	})
+		.state('form2', {
+			url: "/form2",
+			templateUrl: "form2.html"
+		})
+		.state('form3', {
+			url: "/form3",
+			templateUrl: "form3.html"
+		})
+		.state('form4', {
+			url: "/form4",
+			templateUrl: "form4.html"
+		})
+		.state('form5', {
+			url: "/form5",
+			templateUrl: "form5.html"
+		})
+		.state('setup', {
+			url: "/setup",
+			templateUrl: "setup.html"
+		})
 	.state('profile', {
 		url: "/profile",
 		templateUrl: "profile.html"
 	});
+
 
 });
