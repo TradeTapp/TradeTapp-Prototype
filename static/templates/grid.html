@@ -4,7 +4,7 @@
 			<form class="search-bar" role="search">
 				<input type="search" placeholder="Enter Search" />
 				<button type="submit">
-					<img src="../img/search-icon.png" alt="Search Icon">
+					<img src="static/img/search-icon.png" alt="Search Icon">
 				</button>
 			</form>
 		</div>
@@ -56,7 +56,7 @@
 	<div class="grid-filter-divider">
 	</div>
 	<div class="grid-content container">
-		<p ng-repeat="s in filtered = (list.cardlist | filter:applyFilters)">[[ s ]]</p>
+		<p ng-repeat="s in filtered = list.cardlist | filter:applyFilters track by $id(s)">[[ s ]]</p>
 		<tt>[[filters]]</tt>
 	</div>
 </div>

@@ -33,7 +33,9 @@ gulp.task('scripts', function() {
                      'bower_components/angular-ui-router/release/angular-ui-router.js',
                      'static/js/**/*config.js',
                      'static/js/**/*model.js',
+                     'static/js/**/*routes.js',
                      'static/js/**/*service.js',
+                     'static/js/**/*controller.js',
                      'static/js/**/*.js'])
         .pipe(concat('all.js'))
         .pipe(gulp.dest('static/dist'))
