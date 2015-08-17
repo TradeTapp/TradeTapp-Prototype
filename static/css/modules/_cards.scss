@@ -10,14 +10,14 @@
   background: rgba($black, 0.88);
   @include transition(all 0.8s $ease-out-quart);
   button{
-    margin-top: 25%;
+    margin-top: 22%;
   }
 }
 
 
 .card{
   border: 3px solid $tt-light-gray;
-  width: 600px;
+  width: 400px;
   position: relative;
   &:hover{
     .view-profile{
@@ -32,7 +32,7 @@
 button{
     @include border-top-radius(10px);
     @include border-bottom-radius(10px);
-    padding: 20px 50px;
+    padding: 20px 30px;
     border: 1px solid $tt-blue;
     background: $tt-blue;
     font-size: 18px;
@@ -48,21 +48,8 @@ button{
   padding: 10px;
   min-height: 120px;
   // background: $tt-blue;
-  border-bottom: 1px solid $tt-light-gray;
-
   &.mid{
-    border-left: 1px solid $tt-light-gray;
     border-right: 1px solid $tt-light-gray;
-  }
-
-  &.lower{
-    border-bottom: 0;
-  }
-
-  .info-content{
-    span{
-      display: block;
-    }
   }
 }
 
@@ -83,6 +70,6 @@ button{
   .info{
     text-align: center;
     float: left;
-    width: 33.3%;
+    width: 50%;
   }
 }
