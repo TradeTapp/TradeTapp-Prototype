@@ -18,6 +18,10 @@
 			url: "/form",
 			templateUrl: "form.html"
 		})
+		.state('setup', {
+			url: "/setup",
+			templateUrl: "setup.html"
+		})
 		.state('profile', {
 			url: "/profile",
 			templateUrl: "profile.html"
