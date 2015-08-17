@@ -28,9 +28,11 @@ gulp.task('sass', function() {
 
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
-    return gulp.src(['bower_components/angular/angular.js',
-                     'bower_components/jquery/dist/jquery.js',
+    return gulp.src(['bower_components/jquery/dist/jquery.js',
+                    'bower_components/angular/angular.js',
                      'bower_components/angular-ui-router/release/angular-ui-router.js',
+                     'bower_components/angular-isotope/demo/scripts/vendor/jquery.isotope.js',
+                     'bower_components/angular-isotope/dist/angular-isotope.js',
                      'static/js/**/*config.js',
                      'static/js/**/*model.js',
                      'static/js/**/*routes.js',

@@ -28,13 +28,14 @@
 	<div class="container">
 		<div class="grid-filter">
 			<div class="dropdown">
-					<div class="dropdown-button-container" ng-click="toggleCustom()">
-						<p class="dropdown-description">Trade Type</p>
-						<p class="dropdown-filter">[[tradeSelected]]</p>
-					</div>
-					<ul ng-hide="menuDropdown" class="dropdown-menu dropdown-select">
-						<li ng-repeat="trade in getTradeList()" ng-click="setFilter(trade)">[[trade]]</li>
-					</ul>
+				<div class="dropdown-button-container" ng-click="toggleCustom()">
+					<p class="dropdown-description">Trade Type</p>
+					<p class="dropdown-filter">[[tradeSelected]]</p>
+				</div>
+				<ul ng-hide="menuDropdown" class="dropdown-menu dropdown-select">
+					<li ng-repeat="trade in getTradeList()" ng-click="setFilter(trade)">[[trade]]</li>
+					<li class="clearButton" ng-click="clearFilter()">Clear Filters</li>
+				</ul>
 			</div>
 			<!-- <div class="dropdown">
 				<div class="dropdown-container">
@@ -56,7 +57,36 @@
 	<div class="grid-filter-divider">
 	</div>
 	<div class="grid-content container">
-		<p ng-repeat="s in filtered = list.cardlist | filter:applyFilters track by $id(s)">[[ s ]]</p>
-		<tt>[[filters]]</tt>
+		<div class="cards">
+			<div class="card" ng-hide="s.visable" ng-repeat="s in filtered = list.cardlist track by $id(s)">
+				<!-- Hide -->
+				<div class="view-profile overlay">
+					<button href="#">View Profile</button>
+				</div>
+				<!-- // -->
+				<div class="info-top">
+					<div class="profile-pic"><img src="../static/img/fisher-logo.png"/></div>
+					<h3 class="company">[[s.name]]</h3>
+					<span class="location">[[s.location_city]], [[s.location_state]] </span>
+					<br/>
+					<span class="location">[[s.trade]]</span>
+
+
+				</div>
+
+				<div class="info-bottom">
+					<div class="info mid">
+						<h5>Financial <span class="year">(2014)</span></h5>
+						<div class="info-content">chart here yo</div>
+					</div>
+
+					<div class="info">
+						<h5>Safety <span class="year">(2014)</span></h5>
+						<div class="info-content">chart here yo</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+
 </div>

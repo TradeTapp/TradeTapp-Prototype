@@ -3,6 +3,7 @@
 
     angular.module('tradeTapp', [
 	    'ui.router',
+	    'iso.directives',
 	    'tradeTapp.subsearch'
 	]);
 })();

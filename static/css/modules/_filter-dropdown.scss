@@ -45,7 +45,7 @@
 		font-weight: 800;
 		margin: 0;
 		font-size: .7em;
-		padding: 0 ($dropdown-padding * 2.5) 0 ($dropdown-padding / 2);
+		padding: 0 ($dropdown-padding /2) 0 ($dropdown-padding / 2);
 
 		@include media($large-screen) {
 			font-size: 1em;
@@ -81,19 +81,22 @@
 		cursor: pointer;
 		overflow: visable;
 		display: inline-block;
-		width: auto;
+		width: 250px;
 		position:relative;
 		z-index: 9999;
-	}
-
-	.dropdown-menu li {
-		color: $dropdown-color; 
-		list-style: none;
-		padding: 5px;
+		li {
+			color: $dropdown-color; 
+			list-style: none;
+			padding: 5px;
 		// padding: $dropdown-padding / 2;
-	}
-
-	.dropdown-menu li:hover {
-		background: $dropdown-background-hover;
+		&:hover {
+			background: $dropdown-background-hover;
+		}
+		&.clearButton {
+			text-align: center;
+			background-color: $dropdown-background-hover;
+		}
 	}
 }
+}
+

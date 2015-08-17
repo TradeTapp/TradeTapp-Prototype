@@ -9,5 +9,8 @@
     "angular": "~1.4.3",
     "bitters": "~1.0.0",
     "normalize": "~1.0.4"
+  },
+  "resolutions": {
+    "angular": ">= 1.0.8"
   }
 }

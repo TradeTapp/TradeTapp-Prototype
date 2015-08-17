@@ -14,10 +14,16 @@
   }
 }
 
+.cards {
+  @include display(flex);
+  @include flex-wrap(wrap);
+  @include justify-content(space-between);
+}
 
 .card{
   border: 3px solid $tt-light-gray;
-  width: 400px;
+  margin: 5px;
+  width: 250px;
   position: relative;
   &:hover{
     .view-profile{
