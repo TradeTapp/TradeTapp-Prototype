@@ -1,3 +1,11 @@
+//Percentage
+
+.percentage{
+  font-size: 30px;
+  font-weight: bold;
+  color: $text-color;
+}
+
 //Cards
 .view-profile{
   position: absolute;
@@ -10,7 +18,14 @@
   background: rgba($black, 0.88);
   @include transition(all 0.8s $ease-out-quart);
   button{
-    margin-top: 22%;
+    margin-top: 50%;
+  }
+}
+
+.profile-pic{
+  margin-bottom: 15px;
+  img{
+    width: 40%;
   }
 }
 
@@ -54,6 +69,13 @@ button{
   padding: 10px;
   min-height: 120px;
   // background: $tt-blue;
+  h5{
+    font-size: 15px;
+  }
+  .year{
+    font-size: 12px;
+    font-weight: lighter;
+  }
   &.mid{
     border-right: 1px solid $tt-light-gray;
   }
