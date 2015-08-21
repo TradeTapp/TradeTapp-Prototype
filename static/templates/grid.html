@@ -27,38 +27,16 @@
 	</div>
 	<div class="container">
 		<div class="grid-filter">
-			<div class="dropdown grid-filter-dropdown">
-				<div class="dropdown-button-container" ng-click="toggleCustom()">
-					<div class="dropdown-description">Trade Type</div>
-					<div class="dropdown-subtext">[[tradeSelected]]</div>
-				</div>
-				<ul ng-hide="menuDropdown" class="dropdown-menu dropdown-select">
-					<li ng-repeat="trade in getTradeList()" ng-click="setFilter(trade)">[[trade]]</li>
-					<li class="clearButton" ng-click="clearFilter()">Clear Filters</li>
-				</ul>
-			</div>
-			<!-- <div class="dropdown">
-				<div class="dropdown-container">
-					<div class="dropdown-button-container">
-						<p class="dropdown-description">Trade Type</p>
-						<p class="dropdown-filter">Electrician</p>
-					</div>
-					<ul class="dropdown-menu dropdown-select">
-						<li>Dropdown Menu Item</li>
-						<li>Another Item</li>
-						<li>Item Three</li>
-						<li>The Last One</li>
-					</ul>
-				</div>
-			</div> -->
-			<!-- <input type="checkbox" ng-model="filters">Filter Something</input> -->
+			<dropdown class ="grid-filter-dropdown" list="list.filter_values.trades" selected="list.selected_filters.trade" label="Trade Type"></dropdown>
+			<dropdown class ="grid-filter-dropdown" list="list.filter_values.locations" selected="list.selected_filters.location" label="Location"></dropdown>
+			<dropdown class ="grid-filter-dropdown" list="list.filter_values.regions" selected="list.selected_filters.region" label="Region"></dropdown>
 		</div>
 	</div>
 	<div class="grid-filter-divider">
 	</div>
 	<div class="grid-content container">
 		<div class="cards">
-			<div class="card" ng-hide="s.visable" ng-repeat="s in filtered = list.cardlist track by $id(s)">
+			<div class="card" ng-hide="s.hide" ng-repeat="s in filtered = list.cardlist track by $id(s)">
 				<!-- Hide -->
 				<div class="view-profile overlay">
 					<button href="#">View Profile</button>
@@ -67,7 +45,7 @@
 				<div class="info-top">
 					<div class="profile-pic"><img src="../static/img/fisher-logo.png"/></div>
 					<h3 class="company">[[s.name]]</h3>
-					<span class="location">[[s.location_city]], [[s.location_state]] </span>
+					<span class="location">[[s.location]] </span>
 					<br/>
 					<span class="location">[[s.trade]]</span>
 
@@ -78,13 +56,13 @@
 					<div class="info mid">
 						<h5>Financial <span class="year">(2014)</span></h5>
 						<div class="info-content">
-                            <p class="percentage">88<sup>%</sup></p>        
+							<p class="percentage">88<sup>%</sup></p>        
 						</div>
 					</div>
 
 					<div class="info">
 						<h5>Safety <span class="year">(2014)</span></h5>
-                            <p class="percentage">99<sup>%</sup></p>        
+						<p class="percentage">99<sup>%</sup></p>        
 					</div>
 				</div>
 			</div>

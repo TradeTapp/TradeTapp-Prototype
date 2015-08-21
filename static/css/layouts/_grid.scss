@@ -24,11 +24,18 @@
 .grid-filter-dropdown {
 	float: left;
 	position: relative;
-	height: 65px;
+	height: 3.5em;
+	width: golden-ratio(3.5em,2);
+	margin-right: .3em;
 	.dropdown-button-container {
-	    height: 3.5em;
-	    width: golden-ratio(3.5em,2);
+		height: 3.5em;
+		width: golden-ratio(3.5em,2);
+		margin-right: 1em;
 	}
+	.dropdown-menu {
+		width: 13em;
+	}
+
 }
 
 .grid-content {

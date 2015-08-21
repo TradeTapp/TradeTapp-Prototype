@@ -1,0 +1,11 @@
+<div class="dropdown">
+	<div class="dropdown-button-container" ng-click="toggleDropdown()">
+		<div class="dropdown-description">[[label]]</div>
+		<div class="dropdown-subtext">[[selected]]</div>
+	</div>
+
+	<ul ng-show="showDropdown" class="dropdown-menu dropdown-select">
+		<li ng-repeat="trade in list" ng-click="setValue(trade)">[[trade]]</li>
+		<li class="clearButton" ng-click="clearSelected()">Clear Filters</li>
+	</ul>
+</div>

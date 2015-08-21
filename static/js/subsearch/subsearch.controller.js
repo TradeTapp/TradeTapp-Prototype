@@ -3,66 +3,43 @@
 
     var self = this;
     self.cardlist = [];
+    self.filter_values = {
+      "trades": [],
+      "locations": [],
+      "regions": []
+    };
+    self.selected_filters = {
+      "trade": "",
+      "location": "",
+      "region": ""
+    };
+
     subsearch.getsubs().then(function(data){ 
      self.cardlist = data;
-   }); 
+     self.filter_values.trades = subsearch.get_unique_values(self.cardlist, "trade");
+     self.filter_values.locations = subsearch.get_unique_values(self.cardlist, "location");
+     self.filter_values.regions = subsearch.get_unique_values(self.cardlist, "region");
+   });
 
-    $scope.tradeSelected = "";
-    $scope.applyFilters = function(sub) {
-      console.log("Running filter")
-      if($scope.tradeSelected !== "" && sub.trade !== $scope.tradeSelected){
-        return false;
-      } else {
-        return true;
-      }
-    };
-    $scope.clearFilter = function() {
-      $scope.tradeSelected = "";
+
+    function filter_change() {
       for(var sub_index = 0; sub_index < self.cardlist.length;sub_index++) {
-        self.cardlist[sub_index].visable = false;
+        self.cardlist[sub_index].hide = false;
+      }
+      for(var filter in self.selected_filters) {
+        for(var sub_index = 0; sub_index < self.cardlist.length;sub_index++) {
+          if(self.cardlist[sub_index].hide === false &&
+             self.selected_filters[filter] !== "" &&
+             self.cardlist[sub_index][filter] !== self.selected_filters[filter]) {
+              self.cardlist[sub_index].hide = true;   
+        }
       }
     }
+  };
 
-    $scope.getTradeList = function(){
-      unique_trades = [];
-      for(var sub_index = 0; sub_index < self.cardlist.length;sub_index++) {
-        if(unique_trades.indexOf(self.cardlist[sub_index].trade) == -1) {
-          unique_trades.push(self.cardlist[sub_index].trade);
-        }      
-      }
-      return unique_trades;
-    };
-    for(var sub_index = 0; sub_index < self.cardlist.length;sub_index++) {
-     self.cardlist[sub_index].visable = true;
-     console.log("Show me");
-   }
-   $scope.setFilter = function(trade) {
-    $scope.tradeSelected = trade;
-    for(var sub_index = 0; sub_index < self.cardlist.length;sub_index++) {
-     if($scope.tradeSelected !== "" &&  self.cardlist[sub_index].trade !== $scope.tradeSelected){
-       console.log("Show me");
-       self.cardlist[sub_index].visable = true;
-     }
-     else {
-       self.cardlist[sub_index].visable = false;
-     }
-   }
-   $scope.toggleCustom();
- };
+  $scope.$watch(function() {return self.selected_filters.trade}, function() { filter_change("trade")} );
+  $scope.$watch(function() {return self.selected_filters.location}, function() { filter_change("location")} );
+  $scope.$watch(function() {return self.selected_filters.region}, function() { filter_change("region")} );
 
- $scope.menuDropdown = true;
- $scope.toggleCustom = function() {
-  $scope.menuDropdown = $scope.menuDropdown === false ? true:false;
-  event.stopPropagation();
-};
-window.onclick = function() {
-  if (! $scope.menuDropdown) {
-    $scope.menuDropdown = true;
-
-        // You should let angular know about the update that you have made, so that it can refresh the UI
-        $scope.$apply();
-      }
-    };
-
-  });
+});
 })();
