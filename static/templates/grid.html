@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class='grid-search'>
 			<form class="search-bar" role="search">
-				<input type="search" placeholder="Enter Search" />
+				<input ng-model="search.name" type="search" placeholder="Enter Search" />
 				<button type="submit">
 					<img src="../static/img/search-icon.png" alt="Search Icon">
 				</button>
@@ -27,16 +27,19 @@
 	</div>
 	<div class="container">
 		<div class="grid-filter">
-			<dropdown class ="grid-filter-dropdown" list="list.filter_values.trades" selected="list.selected_filters.trade" label="Trade Type"></dropdown>
-			<dropdown class ="grid-filter-dropdown" list="list.filter_values.locations" selected="list.selected_filters.location" label="Location"></dropdown>
-			<dropdown class ="grid-filter-dropdown" list="list.filter_values.regions" selected="list.selected_filters.region" label="Region"></dropdown>
+			<dropdown class ="grid-filter-dropdown" list="list.filters.trade.possible_values" selected="list.filters.trade.value[0]" label="Trade Type" changed="list.filter_change"></dropdown>
+			<dropdown class ="grid-filter-dropdown" list="list.filters.location.possible_values" selected="list.filters.location.value[0]" label="Location" changed="list.filter_change"></dropdown>
+			<dropdown class ="grid-filter-dropdown" list="list.filters.region.possible_values" selected="list.filters.region.value[0]" label="Region" changed="list.filter_change"></dropdown>
+			<dropdownmulti class ="grid-filter-dropdown" list="list.filters.revenue.possible_values" selected="list.filters.revenue.value" label="Revenue" changed="list.filter_change"></dropdownmulti>
+			<dropdownmulti class ="grid-filter-dropdown" list="list.filters.union.possible_values" selected="list.filters.union.value" label="Union Status" changed="list.filter_change"></dropdownmulti>
+			<dropdown class ="grid-sort-dropdown" label="Sort By"></dropdown>
 		</div>
 	</div>
 	<div class="grid-filter-divider">
 	</div>
 	<div class="grid-content container">
 		<div class="cards">
-			<div class="card" ng-hide="s.hide" ng-repeat="s in filtered = list.cardlist track by $id(s)">
+			<div class="card" ng-hide="s.hide" ng-repeat="s in filtered = list.cardlist | filter:search">
 				<!-- Hide -->
 				<div class="view-profile overlay">
 					<button href="#">View Profile</button>
@@ -53,15 +56,15 @@
 
 				<div class="info-bottom">
 					<div class="info mid">
-						<h5>Financial <span class="year">(2014)</span></h5>
+						<h5>Financial <span class="year">([[s.financial_rank_year]])</span></h5>
 						<div class="info-content">
-							<p class="percentage">88<sup>%</sup></p>        
+							<p class="percentage">[[s.financial_rank]]%</p>        
 						</div>
 					</div>
 
 					<div class="info">
-						<h5>Safety <span class="year">(2014)</span></h5>
-						<p class="percentage">99<sup>%</sup></p>        
+						<h5>Safety <span class="year">([[s.safety_rank_year]])</span></h5>
+						<p class="percentage">[[s.safety_rank]]%</p>        
 					</div>
 				</div>
 			</div>

@@ -1,45 +1,60 @@
 (function () {
   angular.module('tradeTapp.subsearch').controller('SubsController', function (subsearch,$scope){
 
-    var self = this;
-    self.cardlist = [];
-    self.filter_values = {
-      "trades": [],
-      "locations": [],
-      "regions": []
-    };
-    self.selected_filters = {
-      "trade": "",
-      "location": "",
-      "region": ""
-    };
+    var vm = this;
+    vm.cardlist = [];
+    vm.filters = {};
+    vm.return_filters = return_filters;
+    vm.trigger_filters = trigger_filters;
+    vm.current_sort = 
+    vm.filter_change = false;
 
-    subsearch.getsubs().then(function(data){ 
-     self.cardlist = data;
-     self.filter_values.trades = subsearch.get_unique_values(self.cardlist, "trade");
-     self.filter_values.locations = subsearch.get_unique_values(self.cardlist, "location");
-     self.filter_values.regions = subsearch.get_unique_values(self.cardlist, "region");
-   });
+    activate();
 
+    function activate() {
+      subsearch.getsubs().then(function(data){ 
+       vm.cardlist = data;
+       vm.filters = vm.return_filters();
+     });
+    }
 
-    function filter_change() {
-      for(var sub_index = 0; sub_index < self.cardlist.length;sub_index++) {
-        self.cardlist[sub_index].hide = false;
-      }
-      for(var filter in self.selected_filters) {
-        for(var sub_index = 0; sub_index < self.cardlist.length;sub_index++) {
-          if(self.cardlist[sub_index].hide === false &&
-             self.selected_filters[filter] !== "" &&
-             self.cardlist[sub_index][filter] !== self.selected_filters[filter]) {
-              self.cardlist[sub_index].hide = true;   
-        }
+    function trigger_filters() {
+        vm.cardlist = subsearch.filter_results(vm.cardlist, vm.filters);
+    }
+    function return_filters () {
+       return {
+                  "trade": {
+                            "value": [],
+                            "compare": "equals",
+                            "possible_values": subsearch.get_filter_values(vm.cardlist, "trade")},
+                  "location": {
+                               "value": [],
+                               "compare": "equals",
+                              "possible_values": subsearch.get_filter_values(vm.cardlist, "location")},
+                  "region": {
+                             "value": [],
+                             "compare": "equals",
+                             "possible_values": subsearch.get_filter_values(vm.cardlist, "region")},
+                  "revenue": {
+                               "value": [],
+                               "compare": "range",
+                               "possible_values": subsearch.get_filter_values(vm.cardlist, "revenue")},
+                  "union": {
+                               "value": [],
+                               "compare": "equals",
+                               "possible_values": subsearch.get_filter_values(vm.cardlist, "union")}
+              };
+    }
+    function return_sort_data () {
+      return {"name": "Company Name",
+              "trade": "Trade",
+              "location": "Location",
+              "region": "Region",
+              "revenue": "Revenue",
+              "union": "Union"
       }
     }
-  };
 
-  $scope.$watch(function() {return self.selected_filters.trade}, function() { filter_change("trade")} );
-  $scope.$watch(function() {return self.selected_filters.location}, function() { filter_change("location")} );
-  $scope.$watch(function() {return self.selected_filters.region}, function() { filter_change("region")} );
-
+    $scope.$watch(function() {return vm.filter_change}, function() { vm.filter_change = false; vm.trigger_filters()});
 });
 })();

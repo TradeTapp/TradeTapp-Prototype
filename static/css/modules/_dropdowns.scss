@@ -49,7 +49,31 @@
 		}
 	}
 
-	.dropdown-menu {
+	.dropdown-select-menu {
+		box-sizing: border-box;
+		background: $dropdown-background;
+		border-radius: $base-border-radius;
+		border-top-left-radius: 0;
+		border: $dropdown-border;
+		color: $dropdown-color;
+		cursor: pointer;
+		width: auto;
+		overflow: visible;
+		position: relative;
+		z-index: 9999;
+		li {
+     		width: auto;
+			padding: 0 ($dropdown-padding * 4) 0 $dropdown-padding;
+			&:hover {
+				background: $dropdown-background-hover;
+			}
+			&.clearButton {
+				text-align: center;
+				background-color: $dropdown-background-hover;
+			}
+		}
+	}
+	.dropdown-multi-select-menu {
 		box-sizing: border-box;
 		background: $dropdown-background;
 		border-radius: $base-border-radius;

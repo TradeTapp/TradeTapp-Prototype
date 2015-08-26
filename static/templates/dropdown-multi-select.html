@@ -1,0 +1,12 @@
+<div class="dropdown">
+	<div class="dropdown-button-container" ng-click="toggleDropdown()">
+		<div class="dropdown-description">[[label]]</div>
+		<div class="dropdown-subtext">[[getSelected()]]</div>
+	</div>
+
+	<ul ng-show="showDropdown" class="dropdown-multi-select-menu dropdown-select">
+		<li ng-repeat="value in list" ng-click="submitFilter(value)">
+		<input type="checkbox" ng-model="selections[value]"> [[value]] </input> </li>
+		<li class="clearButton" ng-click="clearSelected()">Clear</li>
+	</ul>
+</div>

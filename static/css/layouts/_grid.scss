@@ -32,10 +32,25 @@
 		width: golden-ratio(3.5em,2);
 		margin-right: 1em;
 	}
-	.dropdown-menu {
+	.dropdown-select-menu {
+		width: 13em;
+	}
+	.dropdown-multi-select-menu {
 		width: 13em;
 	}
 
+}
+.grid-sort-dropdown {
+	float: right;
+	position: relative;
+	height: 3.5em;
+	width: golden-ratio(3.5em,2);
+	margin-right: .3em;
+	.dropdown-button-container {
+		height: 3.5em;
+		width: golden-ratio(3.5em,2);
+		margin-right: 1em;
+	}	
 }
 
 .grid-content {

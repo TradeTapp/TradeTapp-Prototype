@@ -31,7 +31,7 @@ form.search-bar {
   }
 
   button[type=submit] {
-    @include button(flat, $action-color);
+    @include button(flat, $tt-blue);
     @include position(absolute, 0em 0em 0em null);
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;

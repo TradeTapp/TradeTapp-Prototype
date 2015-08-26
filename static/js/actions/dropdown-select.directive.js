@@ -5,12 +5,13 @@ angular
 function dropdown() {
 	var directive = {
 		link: link,
-		templateUrl: 'dropdown.html',
+		templateUrl: 'dropdown-select.html',
 		restrict: 'E',
 		scope: {
 			list: "=",
 			selected: "=",
-			label: "@"
+			changed: "=",
+			label: "@",
 		}
 
 	};
@@ -33,10 +34,12 @@ function dropdown() {
 		scope.setValue = function(value) {
 			scope.selected = value;	
 			scope.toggleDropdown();
+			scope.changed = true;
 		};
 		scope.clearSelected = function() {
 			scope.selected = "";
 			scope.toggleDropdown();
+			scope.changed = true;
 		};
 		$(document).bind('click', function(event){
 			var isClickedElementChildOfPopup = element
