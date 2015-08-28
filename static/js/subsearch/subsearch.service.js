@@ -48,7 +48,7 @@
           break;
         }
         filter_found = true;
-        for(var sub_index in subs) {
+        for(sub_index in subs) {
           if(subs[sub_index].hide === false) {
            if(filters[filter].compare === "equals" &&
             subs[sub_index][filter] === filters[filter].value[value_index]) {
@@ -65,7 +65,7 @@
     if(! filter_found) {
       continue;
     }
-    for(var sub_index in subs) {
+    for(sub_index in subs) {
       if(! (sub_index in subs_to_filter)) {
           subs[sub_index].hide = true;  
       }
@@ -76,7 +76,7 @@
 
 function get_filter_values(subs,filter_name) {
   if(filter_name in filter_details) {
-    var filter_options = []
+    var filter_options = [];
     for(var filter_params in filter_details[filter_name]) {
       filter_options.push(filter_params);
     }

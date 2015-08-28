@@ -4,7 +4,7 @@
 		<div class="dropdown-subtext">[[selected]]</div>
 	</div>
 
-	<ul ng-show="showDropdown" class="dropdown-select-menu dropdown-select">
+	<ul ng-show="showDropdown" class="dropdown-select-menu" ng-click="triggerController()">
 		<li ng-repeat="value in list" ng-click="setValue(value)">[[value]]</li>
 		<li class="clearButton" ng-click="clearSelected()">Clear</li>
 	</ul>

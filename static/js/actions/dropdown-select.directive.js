@@ -10,8 +10,9 @@ function dropdown() {
 		scope: {
 			list: "=",
 			selected: "=",
-			changed: "=",
+			triggerController: "&",
 			label: "@",
+			selectclose: "="
 		}
 
 	};
@@ -20,7 +21,7 @@ function dropdown() {
 	function link(scope, element, attrs) {
 		scope.showDropdown = false;
 		scope.toggleLoad = false;
-		scope.selected = "";
+		scope.selectclose = true;
 
 		scope.toggleDropdown = function() {
 			if(scope.showDropdown) {
@@ -33,13 +34,15 @@ function dropdown() {
 		};
 		scope.setValue = function(value) {
 			scope.selected = value;	
-			scope.toggleDropdown();
-			scope.changed = true;
+			if(scope.selectclose){
+				scope.toggleDropdown();
+			}
 		};
 		scope.clearSelected = function() {
 			scope.selected = "";
-			scope.toggleDropdown();
-			scope.changed = true;
+			if(scope.selectclose){
+				scope.toggleDropdown();
+			}
 		};
 		$(document).bind('click', function(event){
 			var isClickedElementChildOfPopup = element

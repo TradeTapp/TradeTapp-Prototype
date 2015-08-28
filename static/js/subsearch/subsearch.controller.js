@@ -4,10 +4,16 @@
     var vm = this;
     vm.cardlist = [];
     vm.filters = {};
+    vm.sort_data = {};
     vm.return_filters = return_filters;
     vm.trigger_filters = trigger_filters;
-    vm.current_sort = 
+    vm.return_sort_data = return_sort_data;
+    vm.sort_grid = sort_grid;
+    vm.sort_value = "";
+    vm.predicate = "";
+    vm.reverse = false;
     vm.filter_change = false;
+    vm.sort_change = false;
 
     activate();
 
@@ -15,11 +21,23 @@
       subsearch.getsubs().then(function(data){ 
        vm.cardlist = data;
        vm.filters = vm.return_filters();
+       vm.sort_data = vm.return_sort_data();
      });
     }
 
     function trigger_filters() {
-        vm.cardlist = subsearch.filter_results(vm.cardlist, vm.filters);
+      console.log("Filter");
+      vm.cardlist = subsearch.filter_results(vm.cardlist, vm.filters);
+    }
+    function sort_grid() {
+      if(vm.sort_value !== "") {
+        vm.reverse = (vm.predicate === vm.sort_data[vm.sort_value]) ? !vm.reverse : false;
+        vm.predicate = vm.sort_data[vm.sort_value];
+      }
+      else {
+        vm.reverse = false;
+        vm.predicate = "";
+      }
     }
     function return_filters () {
        return {
@@ -46,15 +64,9 @@
               };
     }
     function return_sort_data () {
-      return {"name": "Company Name",
-              "trade": "Trade",
-              "location": "Location",
-              "region": "Region",
-              "revenue": "Revenue",
-              "union": "Union"
-      }
+      return {"possible_values": ['Financial Rank','Safety Rank'],
+              "Financial Rank": 'financial_rank',
+              "Safety Rank": 'safety_rank'};
     }
-
-    $scope.$watch(function() {return vm.filter_change}, function() { vm.filter_change = false; vm.trigger_filters()});
 });
 })();

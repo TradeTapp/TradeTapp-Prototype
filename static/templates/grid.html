@@ -27,19 +27,19 @@
 	</div>
 	<div class="container">
 		<div class="grid-filter">
-			<dropdown class ="grid-filter-dropdown" list="list.filters.trade.possible_values" selected="list.filters.trade.value[0]" label="Trade Type" changed="list.filter_change"></dropdown>
-			<dropdown class ="grid-filter-dropdown" list="list.filters.location.possible_values" selected="list.filters.location.value[0]" label="Location" changed="list.filter_change"></dropdown>
-			<dropdown class ="grid-filter-dropdown" list="list.filters.region.possible_values" selected="list.filters.region.value[0]" label="Region" changed="list.filter_change"></dropdown>
-			<dropdownmulti class ="grid-filter-dropdown" list="list.filters.revenue.possible_values" selected="list.filters.revenue.value" label="Revenue" changed="list.filter_change"></dropdownmulti>
-			<dropdownmulti class ="grid-filter-dropdown" list="list.filters.union.possible_values" selected="list.filters.union.value" label="Union Status" changed="list.filter_change"></dropdownmulti>
-			<dropdown class ="grid-sort-dropdown" label="Sort By"></dropdown>
+			<dropdown class ="grid-filter-dropdown" list="list.filters.trade.possible_values" selected="list.filters.trade.value[0]" label="Trade Type" trigger-controller="list.trigger_filters()"></dropdown>
+			<dropdown class ="grid-filter-dropdown" list="list.filters.location.possible_values" selected="list.filters.location.value[0]" label="Location" trigger-controller="list.trigger_filters()"></dropdown>
+			<dropdown class ="grid-filter-dropdown" list="list.filters.region.possible_values" selected="list.filters.region.value[0]" label="Region" trigger-controller="list.trigger_filters()"></dropdown>
+			<dropdownmulti class ="grid-filter-dropdown" list="list.filters.revenue.possible_values" selected="list.filters.revenue.value" label="Revenue" trigger-controller="list.trigger_filters()"></dropdownmulti>
+			<dropdownmulti class ="grid-filter-dropdown" list="list.filters.union.possible_values" selected="list.filters.union.value" label="Union Status" trigger-controller="list.trigger_filters()"></dropdownmulti>
+			<dropdown class ="grid-sort-dropdown" selected="list.sort_value" list="list.sort_data.possible_values" label="Sort By" trigger-controller="list.sort_grid()" selectclose="false"></dropdown>
 		</div>
 	</div>
 	<div class="grid-filter-divider">
 	</div>
 	<div class="grid-content container">
 		<div class="cards">
-			<div class="card" ng-hide="s.hide" ng-repeat="s in filtered = list.cardlist | filter:search">
+			<div class="card" ng-hide="s.hide" ng-repeat="s in filtered = list.cardlist | filter:search  | orderBy:list.predicate:list.reverse">
 				<!-- Hide -->
 				<div class="view-profile overlay">
 					<button href="#">View Profile</button>

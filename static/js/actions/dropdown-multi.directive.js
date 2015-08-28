@@ -10,7 +10,7 @@ function dropdownmulti() {
 		scope: {
 			list: "=",
 			selected: "=",
-			changed: "=",
+			triggerController: "&",
 			label: "@",
 		}
 
@@ -32,7 +32,7 @@ function dropdownmulti() {
 				scope.showDropdown = true;
 			}
 		};
-		scope.submitFilter = function(value) {
+		scope.setValue = function(value) {
 			var value_index = scope.selected.indexOf(value);
 			if(value_index > -1) {
 				scope.selections[value] = false;
@@ -42,12 +42,10 @@ function dropdownmulti() {
 				scope.selections[value] = true;
 				scope.selected.push(value);
 			}
-			scope.changed = true;
 		};
 		scope.clearSelected = function() {
 			scope.selected = [];
      		scope.selections = {};
-			scope.changed = true;
 		};
 		scope.getSelected = function() {
 			var items_selected = scope.selected.length;
@@ -57,7 +55,7 @@ function dropdownmulti() {
 			else {
 			    return scope.selected[0];
 			}
-		}
+		};
 		$(document).bind('click', function(event){
 			var isClickedElementChildOfPopup = element
 			.find(event.target)

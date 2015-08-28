@@ -1,4 +1,8 @@
 
+$filter-box-height: 3.5em;
+$filter-box-wdith: golden-ratio($filter-box-height,2);
+$box-spacing: .3em;
+
 .grid-page {
 	padding-top:0em;	
 }
@@ -24,13 +28,12 @@
 .grid-filter-dropdown {
 	float: left;
 	position: relative;
-	height: 3.5em;
-	width: golden-ratio(3.5em,2);
-	margin-right: .3em;
+	height: $filter-box-height;
+	width: $filter-box-wdith;
+	margin-right: $box-spacing;
 	.dropdown-button-container {
-		height: 3.5em;
-		width: golden-ratio(3.5em,2);
-		margin-right: 1em;
+		height: $filter-box-height;
+		width: $filter-box-wdith;
 	}
 	.dropdown-select-menu {
 		width: 13em;
@@ -43,13 +46,12 @@
 .grid-sort-dropdown {
 	float: right;
 	position: relative;
-	height: 3.5em;
-	width: golden-ratio(3.5em,2);
-	margin-right: .3em;
+	height: $filter-box-height;
+	width: $filter-box-wdith;
+	margin-right: $box-spacing;
 	.dropdown-button-container {
-		height: 3.5em;
-		width: golden-ratio(3.5em,2);
-		margin-right: 1em;
+		height: $filter-box-height;
+		width: $filter-box-wdith;
 	}	
 }
 

@@ -26,7 +26,7 @@
 	.dropdown-description {
 		font-weight: 800;
 		font-size: .7em;
-		padding: $dropdown-padding $dropdown-padding 0 $dropdown-padding;
+		padding: $dropdown-padding/2 $dropdown-padding 0 $dropdown-padding;
 		@include media($large-screen) {
 			font-size: 1em;
 		}
