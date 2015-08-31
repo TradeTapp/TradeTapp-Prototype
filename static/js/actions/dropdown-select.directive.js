@@ -12,7 +12,7 @@ function dropdown() {
 			selected: "=",
 			triggerController: "&",
 			label: "@",
-			selectclose: "="
+			selectclose: "@"
 		}
 
 	};

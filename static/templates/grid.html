@@ -11,15 +11,15 @@
 		<div class="grid-context-buttons">
 			<div class="button-group">
 				<label>
-					<input type="radio" name="button-group" value="item" checked>
+					<input type="radio" name="button-group" ng-model="list.dataset_selected" ng-change="list.select_dataset()" value="local">
 					<span class="button-group-item">Local</span>
 				</label>
 				<label>
-					<input type="radio" name="button-group" value="other-item">
+					<input type="radio" name="button-group" ng-model="list.dataset_selected" ng-change="list.select_dataset()" value="global">
 					<span class="button-group-item">Global</span>
 				</label>
 				<label>
-					<input type="radio" name="button-group" value="other-item">
+					<input type="radio" name="button-group" ng-model="list.dataset_selected" ng-change="list.select_dataset()" value="all">
 					<span class="button-group-item">All</span>
 				</label>
 			</div>
@@ -27,7 +27,7 @@
 	</div>
 	<div class="container">
 		<div class="grid-filter">
-			<dropdown class ="grid-filter-dropdown" list="list.filters.trade.possible_values" selected="list.filters.trade.value[0]" label="Trade Type" trigger-controller="list.trigger_filters()"></dropdown>
+			<dropdown class ="grid-filter-dropdown" list="list.filters.trade_name.possible_values" selected="list.filters.trade_name.value[0]" label="Trade Type" trigger-controller="list.trigger_filters()"></dropdown>
 			<dropdown class ="grid-filter-dropdown" list="list.filters.location.possible_values" selected="list.filters.location.value[0]" label="Location" trigger-controller="list.trigger_filters()"></dropdown>
 			<dropdown class ="grid-filter-dropdown" list="list.filters.region.possible_values" selected="list.filters.region.value[0]" label="Region" trigger-controller="list.trigger_filters()"></dropdown>
 			<dropdownmulti class ="grid-filter-dropdown" list="list.filters.revenue.possible_values" selected="list.filters.revenue.value" label="Revenue" trigger-controller="list.trigger_filters()"></dropdownmulti>
@@ -38,6 +38,8 @@
 	<div class="grid-filter-divider">
 	</div>
 	<div class="grid-content container">
+		<div class="grid-page-top">[[filtered.length]]</div>
+		<br>
 		<div class="cards">
 			<div class="card" ng-hide="s.hide" ng-repeat="s in filtered = list.cardlist | filter:search  | orderBy:list.predicate:list.reverse">
 				<!-- Hide -->
@@ -49,7 +51,7 @@
 					<h3 class="company">[[s.name]]</h3>
 					<span class="location">[[s.location]] </span>
 					<br/>
-					<span class="location">[[s.trade]]</span>
+					<span class="location">[[s.trade_name]]</span>
 
 
 				</div>

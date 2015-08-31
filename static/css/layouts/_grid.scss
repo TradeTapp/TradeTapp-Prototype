@@ -7,17 +7,13 @@ $box-spacing: .3em;
 	padding-top:0em;	
 }
 .top-row {
-	box-sizing:border-box;
-	@include span-columns(12);
 }
 .grid-search {
-	@include span-columns(4);
+	float: left;
+	width: 25em;
 }
 .grid-context-buttons{
-	@include shift(5);
-	@include span-columns(3);
-	position: absolute;
-	right:0;
+	float: right;
 }
 .grid-filter {
 	clear:both;
@@ -54,7 +50,10 @@ $box-spacing: .3em;
 		width: $filter-box-wdith;
 	}	
 }
-
+.grid-page-top {
+	display: block;
+    float: right;	
+}
 .grid-content {
 	padding-top: 10px;
 	z-index: 2;

@@ -6,7 +6,8 @@
 
   function subsearch ($http,$q) {
     var service = {
-      getsubs: getsubs,
+      get_local_subs: get_local_subs,
+      get_global_subs: get_global_subs,
       get_filter_values: get_filter_values,
       filter_results: filter_results
     };
@@ -20,12 +21,12 @@
 
   return service;
 
-  function getsubs() {
-    var promise = $http.get("../static/data/carddata.json").then(function (response) {
+  function get_local_subs() {
+    var promise = $http.get("../static/data/carddata_local.json").then(function (response) {
       var sub_data = response.data;
       for(var sub in sub_data){
-        sub_data[sub].trade = sub_data[sub].trade.substr(11);
         sub_data[sub].hide = false;
+        sub_data[sub].type = "local";
         sub_data[sub].location = sub_data[sub].location_city + ", " + sub_data[sub].location_state;
       }
       return sub_data;
@@ -35,6 +36,23 @@
                 });      
     return promise;
   }
+ function get_global_subs() {
+    var promise = $http.get("../static/data/carddata_global.json").then(function (response) {
+      var sub_data = response.data;
+      for(var sub in sub_data){
+        sub_data[sub].name = "";
+        sub_data[sub].hide = false;
+        sub_data[sub].type = "global";
+        sub_data[sub].location = sub_data[sub].location_city + ", " + sub_data[sub].location_state;
+      }
+      return sub_data;
+    }, function(response) {
+                  // something went wrong
+                  return $q.reject(response.data);
+                });      
+    return promise;
+  }
+
 
   function filter_results(subs,filters) {
     for(var sub_index in subs) {
