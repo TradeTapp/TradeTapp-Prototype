@@ -4,7 +4,8 @@
   font-size: 18px;
   font-weight: bold;
   color: $text-color;
-
+  display: inline-block;
+  margin: -5px 0 0 10px;
 }
 
 //Cards
@@ -87,8 +88,8 @@ button{
 }
 
 .info-top{
-  background: #2d363b;
-  color: $white;
+  background: $tt-light-gray;
+  color: $text-color;
   padding: 15px 5px;
   border-bottom: 1px solid $tt-light-gray;
   text-align: center;
@@ -108,7 +109,6 @@ button{
   display: inline-block;
   width: 100%;
   .info{
-    border-bottom: 1px solid $tt-light-gray;
     text-align: left;
     opacity: 0.5;
     &:last-child{
@@ -121,6 +121,8 @@ button{
 //meter
 .meter { 
   height: 15px;  /* Can be anything */
+  width: 80%;
+  float: left;
   position: relative;
   background: #555;
   -moz-border-radius: 20px;
@@ -159,10 +161,11 @@ button{
 
   .info-top{
     background: $text-color;
+    color: $white;
   }
   @include transition(all 0.9s $ease-in-out-quint);
-  .orange > span {
-    background-color: #f1a165;
+  .green > span {
+    background-color: #70a644;
   }
 
   .blue > span{
