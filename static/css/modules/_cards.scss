@@ -66,6 +66,11 @@ button{
       border: 1px solid #45B9E6;
       @include transition(all 0.3s $ease-out-quart);
     }
+
+    &:active{
+      background: #3690B3;
+    }
+
 }
 
 .info{
