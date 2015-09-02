@@ -41,6 +41,7 @@
   position: relative;
   overflow: hidden;
   &:hover{
+    cursor: pointer;
     .view-profile{
       cursor: pointer;
       bottom: 0;
