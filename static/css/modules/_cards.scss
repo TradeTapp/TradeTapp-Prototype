@@ -149,9 +149,24 @@ button{
     inset 0 2px 9px  rgba(255,255,255,0.3),
     inset 0 -2px 6px rgba(0,0,0,0.4);
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   @include transition(all 0.9s $ease-in-out-quint);
   background-color: #434343;
+  &:before{
+    position: absolute;
+    right: -15px;
+    top: -5px;
+    color: #70a644;
+  }
+
+  &.ss-alert{
+    &:before{
+    position: absolute;
+    right: -10px;
+    top: -5px;
+    color: #FFA500;
+  }
+  }
 }
 
 .card:hover{
@@ -169,7 +184,7 @@ button{
   }
 
   .blue > span{
-    background-color: $tt-blue;
+    background-color: #FFA500;
   }
 }
 
