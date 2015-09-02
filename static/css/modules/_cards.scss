@@ -38,7 +38,7 @@
 .card{
   border: 2px solid $tt-light-gray;
   margin: 5px;
-  width: 250px;
+  width: 260px;
   position: relative;
   overflow: hidden;
   &:hover{
@@ -90,7 +90,7 @@ button{
 .info-top{
   background: $tt-light-gray;
   color: $text-color;
-  padding: 15px 5px;
+  padding: 15px 10px;
   border-bottom: 1px solid $tt-light-gray;
   text-align: center;
 
