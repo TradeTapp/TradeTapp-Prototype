@@ -48,7 +48,7 @@ function dropdownmulti() {
      		scope.selections = {};
 		};
 		scope.getSelected = function() {
-			if(scope.selected === 'undefined'){
+			if(typeof(scope.selected) === 'undefined'){
 				return "";
 			}
 			var items_selected = scope.selected.length;

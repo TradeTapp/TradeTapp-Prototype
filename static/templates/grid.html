@@ -37,39 +37,72 @@
 	</div>
 	<div class="grid-filter-divider">
 	</div>
+	<div class="container">
+		<span class="result-count">Results: [[list.cardcount]] </span>
+	<div class="grid-paging">
+		<a ng-click="list.pagenumber = list.pagenumber + 1" ng-class="{disabled: (list.pagenumber === list.pagecount)}">
+			<div class="right-arrow"></div>
+			<span class="next-page">NEXT</span> 
+		</a>
+		of [[list.pagecount]]
+		<a ng-click="list.pagenumber = list.pagenumber - 1" ng-class="{disabled: (list.pagenumber === 1)}">
+			<div class="left-arrow"></div>
+			<span class="prev-page">PREV</span>
+		</a>
+		<select ng-model="list.pagenumber" ng-options="page_number for page_number in list.page_list">
+		</select> 
+	</div>
+	</div>
 	<div class="grid-content container">
-		<div class="grid-page-top">[[filtered.length]]</div>
-		<br>
 		<div class="cards">
-			<div class="card" ng-hide="s.hide" ng-repeat="s in filtered = list.cardlist | filter:search  | orderBy:list.predicate:list.reverse">
-				<!-- Hide -->
-				<div class="view-profile overlay">
-					<button href="#">View Profile</button>
-				</div>
-				<!-- // -->
+			<div class="card" ng-repeat="s in filtered = list.cardlist | orderBy:list.predicate:list.reverse | filter:list.show_current_page:$index">
 				<div class="info-top">
 					<h3 class="company">[[s.name]]</h3>
 					<span class="location">[[s.location]] </span>
 					<br/>
 					<span class="location">[[s.trade_name]]</span>
-
-
 				</div>
 
 				<div class="info-bottom">
 					<div class="info mid">
-						<h5>Financial <span class="year">([[s.financial_rank_year]])</span></h5>
-						<div class="info-content">
-							<p class="percentage">[[s.financial_rank]]%</p>        
+<!-- 						<h5>Financial </h5>
+ -->						<div class="info-content">
+							<div class="meter green">
+ 								<span class="ss-dollarsign" style="width: [[s.financial_rank]]%"></span>
+							</div>
+							<span class="percentage">[[s.financial_rank]]%</span>    
 						</div>
 					</div>
 
 					<div class="info">
-						<h5>Safety <span class="year">([[s.safety_rank_year]])</span></h5>
-						<p class="percentage">[[s.safety_rank]]%</p>        
+<!-- 						<h5>Safety </h5>
+ -->						<div class="meter blue">
+							<span class="ss-alert" style="width: [[s.safety_rank]]%"></span>
+						</div>
+						<span class="percentage">[[s.safety_rank]]%</span>        
 					</div>
+					<!-- Hide -->
+					<div class="view-profile">
+						<button href="#">View Profile</button>
+					</div>
+					<!-- // -->
 				</div>
 			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="grid-paging">
+			<a ng-click="list.pagenumber = list.pagenumber + 1" ng-class="{disabled: (list.pagenumber === list.pagecount)}">
+				<div class="right-arrow"></div>
+				<span class="next-page">NEXT</span> 
+			</a>
+			of [[list.pagecount]]
+			<a ng-click="list.pagenumber = list.pagenumber - 1" ng-class="{disabled: (list.pagenumber === 1)}">
+				<div class="left-arrow"></div>
+				<span class="prev-page">PREV</span>
+			</a>
+			<select ng-model="list.pagenumber" ng-options="page_number for page_number in list.page_list">
+			</select> 
 		</div>
 	</div>
 

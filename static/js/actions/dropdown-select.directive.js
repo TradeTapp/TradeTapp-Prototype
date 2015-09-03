@@ -21,7 +21,7 @@ function dropdown() {
 	function link(scope, element, attrs) {
 		scope.showDropdown = false;
 		scope.toggleLoad = false;
-		scope.selectclose = true;
+		scope.selectclose = angular.isDefined(scope.selectclose) ? (scope.selectclose !== 'false') : true;
 
 		scope.toggleDropdown = function() {
 			if(scope.showDropdown) {

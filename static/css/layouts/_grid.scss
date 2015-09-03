@@ -2,6 +2,7 @@
 $filter-box-height: 3.5em;
 $filter-box-wdith: golden-ratio($filter-box-height,2);
 $box-spacing: .3em;
+$base-font-color: $dark-gray !default;
 
 .grid-page {
 	padding-top:0em;	
@@ -50,12 +51,61 @@ $box-spacing: .3em;
 		width: $filter-box-wdith;
 	}	
 }
-.grid-page-top {
-	display: block;
-    float: right;	
+.grid-paging {
+	float: right;
+	cursor: pointer;
+	font-size: modular-scale(-1);
+	font-weight: bold;
+	a {
+		color: $base-font-color;
+		&:hover {
+		color: lighten($base-font-color, 20%);
+     	}
+		&.disabled {
+			color: lighten($base-font-color, 65%);
+			pointer-events: none;
+		}
+	}
+	.right-arrow {
+	    float: right;
+		display: inline;
+		width: 0; 
+		height: 0; 
+		margin: 3px 6px 0 4px;
+		border-top: 5px solid transparent;
+		border-bottom: 5px solid transparent; 
+		border-left: 5px solid; 
+	}
+	.next-page {
+	    float: right;
+	    margin-left: 4px;
+	}
+	.left-arrow {
+		float: left;
+		display: inline;
+		width: 0; 
+		height: 0; 
+		margin: 3px 4px;
+		border-top: 5px solid transparent;
+		border-bottom: 5px solid transparent; 
+		border-right: 5px solid; 
+	}
+	.prev-page {
+		float: left;
+		margin-right: 4px;
+	}
+	select {
+	    float: left;	
+		margin-right: 4px;
+	}
+
+}
+.result-count {
+	font-size: modular-scale(-1);
+	font-weight: bold;
+	float: left;
 }
 .grid-content {
-	padding-top: 10px;
 	z-index: 2;
 }
 
@@ -63,6 +113,6 @@ $box-spacing: .3em;
 	border-bottom: 1px solid $tt-light-gray; 
 	border-top: 1px solid $tt-light-gray; 
 	padding-top: 1px;
-	margin: 10px 0 10px;
+	margin: 10px 0 5px;
 		//background: lighten($main-color,20%);
 	}

@@ -9,6 +9,7 @@
       get_local_subs: get_local_subs,
       get_global_subs: get_global_subs,
       get_filter_values: get_filter_values,
+      get_display_count: get_display_count,
       filter_results: filter_results
     };
     var filter_details = 
@@ -18,6 +19,7 @@
      "10 to 100 Million": {"min": 10000000, "max": 99999999},
      "100+ Million": {"min": 100000000, "max": 999999999999}}
      };
+     var display_count = 0
 
   return service;
 
@@ -55,6 +57,7 @@
 
 
   function filter_results(subs,filters) {
+    display_count = subs.length;
     for(var sub_index in subs) {
       subs[sub_index].hide = false;
     }
@@ -77,6 +80,10 @@
                    subs[sub_index][filter] <= filter_details[filter][filters[filter].value[value_index]].max)) {
              subs_to_filter[sub_index] = true;     
            }
+           else if(filters[filter].compare === "contains" &&
+             (subs[sub_index][filter].search(new RegExp(filters[filter].value[value_index], "i")) > -1)) {
+             subs_to_filter[sub_index] = true;     
+           }
           }
         }
     }
@@ -85,11 +92,17 @@
     }
     for(sub_index in subs) {
       if(! (sub_index in subs_to_filter)) {
-          subs[sub_index].hide = true;  
+          if(!subs[sub_index].hide) {
+              subs[sub_index].hide = true;  
+              display_count--;
+        }
       }
     }
   }
   return subs;
+}
+function get_display_count() {
+    return display_count;
 }
 
 function get_filter_values(subs,filter_name) {
