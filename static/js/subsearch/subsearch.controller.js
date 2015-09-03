@@ -111,10 +111,14 @@
                                "value": [],
                                "compare": "equals",
                               "possible_values": subsearch.get_filter_values(vm.cardlist, "location")},
-                  "region": {
+                  "financial_rank_year": {
                              "value": [],
                              "compare": "equals",
-                             "possible_values": subsearch.get_filter_values(vm.cardlist, "region")},
+                             "possible_values": (subsearch.get_filter_values(vm.cardlist, "financial_rank_year")).sort().reverse()},
+                  "safety_rank_year": {
+                             "value": [],
+                             "compare": "equals",
+                             "possible_values": subsearch.get_filter_values(vm.cardlist, "safety_rank_year")},
                   "revenue": {
                                "value": [],
                                "compare": "range",
