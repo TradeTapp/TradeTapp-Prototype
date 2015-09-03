@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class='grid-search'>
 			<form class="search-bar" role="search">
-				<input ng-model="search.name" type="search" placeholder="Enter Search" />
+				<input ng-model="list.filters.name.value[0]" ng-change="list.trigger_filters()" type="search" placeholder="Enter Search" />
 				<button type="submit">
 					<img src="../static/img/search-icon.png" alt="Search Icon">
 				</button>
