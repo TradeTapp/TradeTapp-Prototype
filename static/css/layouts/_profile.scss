@@ -1,0 +1,28 @@
+.alert{
+	background: $tt-blue;
+	padding: 20px;
+	color: $white;
+
+	i{ 
+		padding: 0 10px; 
+		&.close{
+			float: right;
+			&:hover{
+				cursor: pointer;
+			}
+		}
+	}
+
+}
+
+.profile{
+	margin: 0 auto 20px;
+	background: $tt-light-gray;
+	max-width: 100%;
+	padding: 40px 0;
+}
+
+.button-group{
+	display: inline-block;
+	margin: 40px 0;
+}
