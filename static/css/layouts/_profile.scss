@@ -15,6 +15,15 @@
 
 }
 
+.trade-list{
+	.tag{
+		padding: 10px;
+		background: green;
+		display: inline;
+		color: $white;
+	}
+}
+
 .profile{
 	margin: 0 auto 20px;
 	background: $tt-light-gray;
