@@ -1,3 +1,8 @@
+
+section{
+	margin-bottom: 50px;
+}
+
 .alert{
 	background: $tt-blue;
 	padding: 20px;
@@ -13,6 +18,16 @@
 		}
 	}
 
+}
+
+.list-group{
+	li{
+		float: left;
+		width: 33.3%;
+		a{
+			color: $text-color;
+		}
+	}
 }
 
 .trade-list{
