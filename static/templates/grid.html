@@ -38,21 +38,22 @@
 	</div>
 	<div class="grid-filter-divider">
 	</div>
-	<div class="container">
+	<div class="grid-container container">
 		<span class="result-count">Results: [[list.cardcount]] </span>
+
 	<div class="grid-paging">
 		<a ng-click="list.pagenumber = list.pagenumber + 1" ng-class="{disabled: (list.pagenumber === list.pagecount)}">
 			<div class="right-arrow"></div>
 			<span class="next-page">NEXT</span> 
 		</a>
-		of [[list.pagecount]]
+		[[list.pagenumber]] of [[list.pagecount]]
 		<a ng-click="list.pagenumber = list.pagenumber - 1" ng-class="{disabled: (list.pagenumber === 1)}">
 			<div class="left-arrow"></div>
 			<span class="prev-page">PREV</span>
 		</a>
-		<select ng-model="list.pagenumber" ng-options="page_number for page_number in list.page_list">
-		</select> 
+		<select ng-model="list.pagenumber" ng-options="page_number for page_number in list.page_list"></select> 
 	</div>
+
 	</div>
 	<div class="grid-content container">
 		<div class="cards">
@@ -92,7 +93,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="container">
+	<div class="grid-container container">
 		<div class="grid-paging">
 			<a ng-click="list.pagenumber = list.pagenumber + 1" ng-class="{disabled: (list.pagenumber === list.pagecount)}">
 				<div class="right-arrow"></div>
