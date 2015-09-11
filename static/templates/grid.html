@@ -84,7 +84,8 @@
 					</div>
 					<!-- Hide -->
 					<div class="view-profile">
-						<button href="#">View Profile</button>
+						<button ng-show="(s.type === 'local')" href="#">View Profile</button>
+						<button ng-show="(s.type === 'global')" href="#">Send Request</button>
 					</div>
 					<!-- // -->
 				</div>

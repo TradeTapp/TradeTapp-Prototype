@@ -1,0 +1,23 @@
+.form-page {
+
+}
+.form-header {
+	display: block;
+	text-align: center;
+}
+.form-buttons {
+	margin-top: 10px;
+	button {
+		padding: 0;
+		width: 80px;
+		height: 40px;
+	}
+	.right {
+		margin-left: 8px;
+		float: right;
+	}
+	.left {
+		margin-right: 8px;
+		float: left;
+	}
+}

@@ -19,7 +19,7 @@
      "10 to 100 Million": {"min": 10000000, "max": 99999999},
      "100+ Million": {"min": 100000000, "max": 999999999999}}
      };
-     var display_count = 0
+     var display_count = 0;
 
   return service;
 

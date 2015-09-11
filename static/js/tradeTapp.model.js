@@ -5,6 +5,7 @@
 	    'ui.router',
 	    'iso.directives',
 	    'tradeTapp.subsearch',
+	    'tradeTapp.newsubform',
     	'tradeTapp.actions'
 	]);
 })();

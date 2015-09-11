@@ -10,13 +10,37 @@
 
 		$urlRouterProvider.otherwise("/");
 		$stateProvider
+		.state('home', {
+			url: "/",
+			templateUrl: "home.html"
+		})
 		.state('grid', {
 			url: "/grid",
 			templateUrl: "grid.html"
 		})
-		.state('form', {
-			url: "/form",
-			templateUrl: "form.html"
+		.state('newsubform', {
+			url: "/newsubform",
+			templateUrl: "newsubform.html"
+		})
+		.state('newsubform.profile', {
+			url: "/profile",
+			templateUrl: "newsubform-profile.html"
+		})
+		.state('newsubform.contacts', {
+			url: "/contacts",
+			templateUrl: "newsubform-contacts.html"
+		})
+		.state('newsubform.safety', {
+			url: "/safety",
+			templateUrl: "newsubform-safety.html"
+		})
+		.state('newsubform.financials', {
+			url: "/financials",
+			templateUrl: "newsubform-financials.html"
+		})
+		.state('newsubform.uploads', {
+			url: "/uploads",
+			templateUrl: "newsubform-uploads.html"
 		})
 		.state('setup', {
 			url: "/setup",
