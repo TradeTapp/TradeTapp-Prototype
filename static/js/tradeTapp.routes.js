@@ -2,11 +2,12 @@
 
 	angular.module('tradeTapp').config(config);
 
-	function config($interpolateProvider,$httpProvider,$stateProvider,$urlRouterProvider) 
+	function config($interpolateProvider,$httpProvider,$stateProvider,$urlRouterProvider,$uiViewScrollProvider) 
 	{
 		$interpolateProvider.startSymbol('[[');
 		$interpolateProvider.endSymbol(']]');
 		$httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+		$uiViewScrollProvider.useAnchorScroll();
 
 		$urlRouterProvider.otherwise("/");
 		$stateProvider

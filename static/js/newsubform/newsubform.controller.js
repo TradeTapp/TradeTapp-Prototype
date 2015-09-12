@@ -31,15 +31,15 @@
     }
     function get_form_pages() {
     	return [{ 'route': 'newsubform.profile',
-    	          'label': "Profile"},
+    	          'label': "Company Information"},
     	         {'route': 'newsubform.contacts',
     	          'label': 'Contacts'},
     	         {'route': 'newsubform.safety',
-    	          'label': 'Safety'},
+    	          'label': 'Safety Information'},
     	         {'route': 'newsubform.financials',
-    	          'label': 'Financials'},
+    	          'label': 'Financial Input'},
     	         {'route': 'newsubform.uploads',
-    	          'label': 'Uploads'}];
+    	          'label': 'Document Uploads'}];
     }
 
 

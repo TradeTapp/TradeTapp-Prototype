@@ -1,23 +1,25 @@
 <div ng-controller="subFormController as vm" class="form-page container">
 	<div class="form-header">
-		<h1>
-			Add a new Subcontractor
-		</h1>
-		<h4>
+		<h2>
+			New Subcontractor
+		</h2>
+	<!-- 	<h4>
 			Please fill in the information below to create a subcontractor profile.
-		</h4>
-		<div class="button-group">
-			<label ng-repeat="form_page in vm.form_pages">
-				<input type="radio" name="button-group" ng-model="vm.page_number" value="[[$index]]" ng-change="vm.change_page($index)">
-				<span class="button-group-item"> [[form_page.label]] </span>
-			</label>
-		</div>
+		</h4> -->
+		
+		<ul class="form-nav accordion-tabs-minimal">
+			<li class="tab-header-and-content" ng-repeat="form_page in vm.form_pages">
+				<a ng-click="vm.change_page($index)" class="tab-link" ng-class="{'is-active': (vm.page_number === [[$index]])}">[[form_page.label]]</a>
+			</li>
+		</ul>
 	</div>
-	<div id="newsubform-views" ui-view></div>
+	<div class="form-display">
+	<div class="form-body" id="newsubform-views" ui-view autoscroll="true"></div>
+	</div>
 	<div class="form-buttons">
-	    <button class="left" ui-sref="home">Cancel</button>
-	    <button class="right" ng-click="vm.next_page()" ng-show="(vm.page_number < vm.form_pages.length - 1)">Next</button>
+		<button class="left" ui-sref="home">Cancel</button>
+		<button class="right" ng-click="vm.next_page()" ng-show="(vm.page_number < vm.form_pages.length - 1)">Next</button>
 		<button class="right" ui-sref="home" ng-show="(vm.page_number === vm.form_pages.length - 1)">Submit</button>
-	    <button class="right" ng-click="vm.back_page()" ng-show="(vm.page_number > 0)">Back</button>
+		<button class="right" ng-click="vm.back_page()" ng-show="(vm.page_number > 0)">Back</button>
 	</div>
 </div>

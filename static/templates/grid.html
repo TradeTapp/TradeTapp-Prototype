@@ -55,7 +55,7 @@
 	</div>
 
 	</div>
-	<div class="grid-content container">
+	<div class="grid-content container" ui-sref="profile">
 		<div class="cards">
 			<div class="card" ng-repeat="s in filtered = list.cardlist | orderBy:list.predicate:list.reverse | filter:list.show_current_page:$index">
 				<div class="info-top">
@@ -85,7 +85,7 @@
 					</div>
 					<!-- Hide -->
 					<div class="view-profile">
-						<button ng-show="(s.type === 'local')" href="#">View Profile</button>
+						<button ng-show="(s.type === 'local')" >View Profile</button>
 						<button ng-show="(s.type === 'global')" href="#">Send Request</button>
 					</div>
 					<!-- // -->

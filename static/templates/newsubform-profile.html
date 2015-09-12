@@ -1,33 +1,54 @@
-        <h1>Company Information</h1>
-        <label>Company Name</label>
-        <input type="text" placeholder="Enter full company name" />
-        <label>Company Address</label>
-        <input type="text" placeholder="Address Line 1" />
-        <input type="text" placeholder="Address Line 2" />
-        <section>
-            <input type="text" placeholder="City" />
-            <input type="text" placeholder="State"/>
-            <input type="text" placeholder="Zip Code" />
-        </section>
-        <section>
-           <label>Federal Tax ID Number</label>
-            <input type="text" required placeholder="99-9999999" />
-            <div class="dropdown">
-                <div class="dropdown-button-container" ng-click="toggleCustom()">
-                    <p class="dropdown-description">Type of Work Performed</p>
-                    <p class="dropdown-filter">[[tradeSelected]]</p>
-                </div>
-                <ul ng-hide="menuDropdown" class="dropdown-menu dropdown-select">
-                    <li ng-repeat="trade in getTradeList()" ng-click="setFilter(trade)">[[trade]]</li>
-                </ul>
-            </div>
-        </section>
-        <section>
-            <label>Minority/Disadvantaged Business Certification</label>
-            <input type="checkbox" />
-            <label>Union Affiliations</label>
-            <input type="text"/>
-            <label>Non-Union</label>
-            <input type="checkbox"/>
-        </section>
+<div class="form-row">
+    <label class="label-small">Company Name</label>
+    <input class="input-medium" type="text" placeholder="Enter full company name" />
+</div>
+<div class="form-row">
+    <label class="label-small">Address</label>
+    <input class="input-medium" type="text" placeholder="Address Line 1" />
+</div>
+<div class="form-row">
+    <label class="label-small"></label>
+    <input class="input-medium" type="text" placeholder="Address Line 2" />
+</div>
+<div class="form-row">
+    <label class="label-small"></label>
+    <input class="input-medium" type="text" placeholder="City" />
+</div>
+<div class="form-row">
+    <label class="label-small"></label>
+    <input class="input-medium" type="text" placeholder="State"/>
+</div>
+<div class="form-row">
+    <label class="label-small"></label>
+    <input class="input-medium" type="text" placeholder="Zip Code" />
+</div>
+<div class="form-row">
+   <label class="label-small">Federal Tax ID Number</label>
+   <input class="input-medium" type="text" placeholder="99-9999999" />
+</div>
+
+<div class="form-row">
+    <label class="label-small">Type of Work Performed</label>
+    <select>
+        <option></option>
+        <option>Finished</option>
+        <option>Electrical</option>
+        <option>Conveying Systems</option>
+        <option>Mechncial</option>
+        <option>Concrete</option>
+        <option>Doors and Windows</option>
+        <option>Metals</option>
+        <option>Masonry</option>
+    </select>
+</div>
+<div class="form-row">
+    <input class="float" type="checkbox" />
+    <label class="float">Minority/Disadvantaged Business Certification</label>
+</div>
+<div class="form-row">
+    <input class="float" type="checkbox"/>
+    <label class="float" >Non-Union</label>
+    <input class="float" type="checkbox"/>
+    <label class="float">Union</label>
+    <input class="float input-medium" type="text" placeholder="Union Affiliation"/>
 </div>
