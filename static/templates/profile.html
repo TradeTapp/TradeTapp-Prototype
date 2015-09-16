@@ -430,8 +430,68 @@
    <li class="tab-header-and-content">
     <a href="#" class="tab-link">Trends/Charts</a>
     <div class="tab-content">
-      <img src="../static/img/Network%20Rank%20Trend%20(Safety%20&%20Financial).jpeg"/>
-      <img src="../static/img/Trending%20Financial%20Rank%20by%20Category.jpeg"/>
+        <h3>Overall Financial Rank by Year</h3>
+
+    <ul class="chart">
+    <li class="axis">
+        <div class="label">0.8</div>
+        <div class="label">0.6</div>
+        <div class="label">0.4</div>
+        <div class="label">0.2</div>
+        <div class="label">0</div>
+    </li>
+        <div class="chart-section global">
+            <li class="bar teal" style="height: 80%;" title="95">
+                <!--<div class="percent">95<span>%</span></div>-->
+            </li>
+            <li class="bar salmon" style="height: 70%;" title="90">
+                <!--<div class="percent">90<span>%</span></div>-->
+            </li>
+            <li class="bar peach" style="height: 60%;" title="80">
+                <!--<div class="percent">80<span>%</span></div>-->
+            </li>
+        </div>
+
+        <div class="chart-section trade">
+            <li class="bar teal" style="height: 75%;" title="75">
+                <!--<div class="percent">75<span>%</span></div>-->
+            </li>
+            <li class="bar salmon" style="height: 40%;" title="40">
+                <!--<div class="percent">40<span>%</span></div>-->
+            </li>
+            <li class="bar peach" style="height: 60%;" title="40">
+                <!--<div class="percent">40<span>%</span></div>-->
+            </li>
+        </div>
+
+        <div class="chart-section local">
+            <li class="bar teal" style="height: 75%;" title="75">
+                <!--<div class="percent">75<span>%</span></div>-->
+            </li>
+            <li class="bar salmon" style="height: 60%;" title="40">
+                <!--<div class="percent">40<span>%</span></div>-->
+            </li>
+            <li class="bar peach" style="height: 50%;" title="40">
+               <!-- <div class="percent">40<span>%</span></div> -->
+            </li>
+        </div>
+    </ul>
+    <ul class="network-list">
+        <li>Local Network</li>
+        <li>Global Network</li>
+        <li>Trade Network</li>        
+    </ul>
+
+        <ul class="key-list">
+            <li class="teal"><i class="ss-icon ss-calendar"></i>2012</li>
+            <li class="salmon"><i class="ss-icon ss-calendar"></i>2013</li>
+            <li class="peach"><i class="ss-icon ss-calendar"></i>2014</li>   
+        </ul>
+
+
+
+<!--       <img src="../static/img/Network%20Rank%20Trend%20(Safety%20&%20Financial).jpeg"/>
+ -->      <!-- <img src="../static/img/Trending%20Financial%20Rank%20by%20Category.jpeg"/> -->
 
     </div>
   </li>
@@ -584,7 +644,8 @@
 </li>
 </ul>
 
- <div class="stats_bar container">
+ <div class="stats_bar">
+    <div class="container">
                 <div class="butpro butstyle" style="height:80px">
                     <div class="sub"><h2>Annual Revenue</h2><span>$145,230,000</span></div>
                     <div class="stat"><span class="up"> $122.3M (2013) </span></div>
@@ -609,8 +670,9 @@
                     <div class="sub"><h2>Agg. Contract Limit</h2><span>$36,276,999</span></div>
                     <div class="stat"><span class="down"> $52.7M (2013) </span></div>
 
-                </div>
             </div>
+        </div>
+    </div>
 <script>
 $(document).ready(function () {
 
@@ -636,6 +698,49 @@ $(document).ready(function () {
       event.preventDefault();
     }
   });
+
+var didScroll;
+var lastScrollTop = 0;
+var delta = 5;
+var navbarHeight = $('header').outerHeight();
+
+$(window).scroll(function(event){
+    didScroll = true;
+});
+
+setInterval(function() {
+    if (didScroll) {
+        hasScrolled();
+        didScroll = false;
+    }
+}, 250);
+
+function hasScrolled() {
+    var st = $(this).scrollTop();
+    
+    // Make sure they scroll more than delta
+    if(Math.abs(lastScrollTop - st) <= delta)
+        return;
+    
+    // If they scrolled down and are past the navbar, add class .nav-up.
+    // This is necessary so you never see what is "behind" the navbar.
+    if (st > lastScrollTop && st > navbarHeight){
+        // Scroll Down
+        $('.stats_bar').addClass('up');
+    } else {
+        // Scroll Up
+        if(st + $(window).height() < $(document).height()) {
+            $('.stats_bar').removeClass('up');
+        }
+    }
+    
+    lastScrollTop = st;
+}
+
+
+
+
+
 });
 </script>
 </div>

@@ -1,6 +1,21 @@
+body{
+	padding-bottom: 100px;
+}
 
 section{
 	margin-bottom: 50px;
+}
+
+table{
+	th{ background: $text-color; color: $white; padding: 15px 20px;}
+	tr{
+		&:nth-child(odd){
+			background: $tt-light-gray;
+		}
+		td{
+			padding: 15px 20px;
+		}
+	}
 }
 
 .alert{
@@ -49,4 +64,14 @@ section{
 .button-group{
 	display: inline-block;
 	margin: 40px 0;
+}
+
+.stats_bar{
+	background: $tt-light-gray;
+	padding: 20px 0;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	display: block;
 }
