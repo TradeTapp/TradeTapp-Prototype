@@ -35,6 +35,10 @@
 			url: "/safety",
 			templateUrl: "newsubform-safety.html"
 		})
+		.state('newsubform.insurance', {
+			url: "/insurance",
+			templateUrl: "newsubform-insurance.html"
+		})
 		.state('newsubform.financials', {
 			url: "/financials",
 			templateUrl: "newsubform-financials.html"
