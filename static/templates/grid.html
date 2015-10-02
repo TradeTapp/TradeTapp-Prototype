@@ -10,7 +10,7 @@
 		</div>
 		<div class="grid-context-buttons">
 			<div class="button-group">
-				<label>
+				<label>Network:
 					<input type="radio" name="button-group" ng-model="list.dataset_selected" ng-change="list.select_dataset()" value="local">
 					<span class="button-group-item">Local</span>
 				</label>
@@ -27,7 +27,7 @@
 	</div>
 	<div class="container">
 		<div class="grid-filter">
-			<dropdown class ="grid-filter-dropdown" list="list.filters.trade_name.possible_values" selected="list.filters.trade_name.value[0]" label="Trade Type" trigger-controller="list.trigger_filters()"></dropdown>
+			<dropdown class ="grid-filter-dropdown" list="list.filters.trade_name.possible_values" selected="list.filters.trade_name.value[0]" label="CSI Division" trigger-controller="list.trigger_filters()"></dropdown>
 			<dropdown class ="grid-filter-dropdown" list="list.filters.location.possible_values" selected="list.filters.location.value[0]" label="Location" trigger-controller="list.trigger_filters()"></dropdown>
 			<dropdownmulti class ="grid-filter-dropdown" list="list.filters.financial_rank_year.possible_values" selected="list.filters.financial_rank_year.value" label="Financials Year" trigger-controller="list.trigger_filters()"></dropdownmulti>
 			<dropdownmulti class ="grid-filter-dropdown" list="list.filters.safety_rank_year.possible_values" selected="list.filters.safety_rank_year.value" label="Safety Data Year" trigger-controller="list.trigger_filters()"></dropdownmulti>
@@ -62,7 +62,8 @@
 					<h3 class="company">[[s.name]]</h3>
 					<span class="location">[[s.location]] </span>
 					<br/>
-					<span class="location">[[s.trade_name]]</span>
+					<span class="location">[[s.trade_code]] - [[s.trade_name]]</span>
+
 				</div>
 
 				<div class="info-bottom">
