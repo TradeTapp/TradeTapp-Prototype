@@ -41,15 +41,16 @@
     </select>
 </div>
 <div class="form-row">
-    <input class="float" type="checkbox" />
+    <input class="float" type="checkbox" ng-model="vm.dbe_checked"/>
     <label class="float">M/W/DBE  Certification</label>
 </div>
+<input class="form-row input-medium" type="text" placeholder="M/W/DBE  Certification" ng-show="vm.dbe_checked"/>
 <div class="form-row">
-    <input class="float" type="checkbox"/>
-    <label class="float" >Non-Union</label>
-    <input class="float" type="checkbox"/>
-    <label class="float" >Open Shop</label>
-    <input class="float" type="checkbox"/>
+    <input class="float" type="radio" ng-model="vm.union_checked" name="union" value="Union"/>
     <label class="float">Union</label>
-    <input class="float input-medium" type="text" placeholder="Union Affiliation"/>
+    <input class="float" type="radio" name="union" ng-model="vm.union_checked" value="Non"/>
+    <label class="float" >Non-Union</label>
+    <input class="float" type="radio" name="union" ng-model="vm.union_checked" value="Open"/>
+    <label class="float" >Open Shop</label>
 </div>
+<input class="float input-medium" type="text" placeholder="Union Affiliation" ng-show="(vm.union_checked === 'Union')"/>

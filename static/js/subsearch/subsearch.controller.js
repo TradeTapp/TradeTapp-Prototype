@@ -50,10 +50,22 @@
       vm.calc_page_info();
     }
     function sort_grid() {
-      if(vm.sort_value !== "") {
-        vm.reverse = (vm.predicate === vm.sort_data[vm.sort_value]) ? !vm.reverse : false;
-        vm.predicate = vm.sort_data[vm.sort_value];
+      if(vm.sort_value === 'Financial: High to Low') {
+          vm.reverse = true;
+          vm.predicate = 'financial_rank';
       }
+      else if(vm.sort_value ===  'Financial: Low to High') {
+          vm.reverse = false;
+          vm.predicate = 'financial_rank';
+      }
+      else if(vm.sort_value ===  'Safety: High to Low') {
+          vm.reverse = true;
+          vm.predicate = 'safety_rank';
+      }
+      else if(vm.sort_value === 'Safety: Low to High') {
+          vm.reverse = false;
+          vm.predicate = 'safety_rank';
+        }
       else {
         vm.reverse = false;
         vm.predicate = "";
@@ -130,9 +142,8 @@
               };
     }
     function return_sort_data () {
-      return {"possible_values": ['Financial Rank','Safety Rank'],
-              "Financial Rank": 'financial_rank',
-              "Safety Rank": 'safety_rank'};
+      return {"possible_values": ['Financial: High to Low','Financial: Low to High', 'Safety: High to Low', 'Safety: Low to High']
+              };
     }
 });
 })();

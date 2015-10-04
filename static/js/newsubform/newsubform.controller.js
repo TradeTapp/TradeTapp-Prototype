@@ -5,6 +5,8 @@
     //variable
     vm.page_number = 0;
     vm.form_pages = [];
+    vm.dbe_checked = false;
+    vm.union_checked = '';
     //functions
     vm.change_page = change_page;
     vm.next_page = next_page;

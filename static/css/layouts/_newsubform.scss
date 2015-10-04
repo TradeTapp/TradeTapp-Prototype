@@ -27,23 +27,22 @@
 		.form-row {
 			@include span-columns(11);
 			@include omega();
-			.label-small {
-				@include span-columns(2);
-			}
-			.label-large {
-				@include span-columns(5);
-			}
-			.float {
-				float: left;
-			}
-			input[type="checkbox"] {
-			}
-			.input-medium {
-				@include span-columns(5);
-			}
-			.input-max {
-				@include span-columns(10);
-			}
+		}
+		.label-small {
+			@include span-columns(2);
+		}
+		.label-large {
+			@include span-columns(5);
+		}
+		.float {
+			float: left;
+		}
+		.input-medium {
+     		height: 28px;
+			@include span-columns(5);
+		}
+		.input-max {
+			@include span-columns(10);
 		}
 	}
 }

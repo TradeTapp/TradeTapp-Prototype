@@ -53,6 +53,12 @@ $base-font-color: $dark-gray !default;
 		height: $filter-box-height;
 		width: $filter-box-wdith;
 	}	
+	.dropdown-select-menu {
+		position: absolute;
+        bottom: -122px;
+        right: 0;
+		width: 13em;
+	}
 }
 .grid-paging {
 	float: right;
